@@ -46,9 +46,9 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.bill.com/docs/home
-      - type: API Reference
+      - type: APIReference
         url: https://developer.bill.com/reference
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.bill.com/docs/bill-v3-api-get-started
       - type: Postman
         url: https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview
@@ -73,11 +73,11 @@ common:
     url: https://developer.bill.com
   - type: Documentation
     url: https://developer.bill.com/docs/home
-  - type: API Reference
+  - type: APIReference
     url: https://developer.bill.com/reference
   - type: Pricing
     url: https://www.bill.com/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://app.bill.com/Signup
   - type: Support
     url: https://developersupport.bill.com
