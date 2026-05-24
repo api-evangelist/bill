@@ -84,6 +84,8 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/bill-com
 
+  - type: LLMsTxt
+    url: https://developer.bill.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
