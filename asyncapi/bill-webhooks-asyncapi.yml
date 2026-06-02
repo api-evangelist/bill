@@ -1,0 +1,904 @@
+asyncapi: 2.6.0
+info:
+  title: BILL Webhooks
+  version: '1'
+  description: |
+    Outbound webhook event notifications delivered by the BILL v3 API Platform
+    to subscriber `notificationUrl` endpoints. Subscribers register through the
+    BILL v3 webhook subscription endpoints; BILL POSTs JSON event payloads
+    when subscribed Accounts Payable, Accounts Receivable, Spend & Expense,
+    funding-account, vendor, and risk-verification events occur.
+
+    Best-effort AsyncAPI reconstruction from BILL's public developer portal at
+    https://developer.bill.com/docs/webhooks. Authoritative reference lives at
+    https://developer.bill.com/reference and the notification payload pages
+    under https://developer.bill.com/docs/notification-payloads-reference.
+
+    Each notification is signed with HMAC-SHA256 using the subscription's
+    `securityKey`. The base64-encoded signature is delivered in the
+    `x-bill-sha-signature` HTTP header so subscribers can verify authenticity.
+  contact:
+    name: BILL Developer Support
+    url: https://developersupport.bill.com
+  license:
+    name: Proprietary
+    url: https://www.bill.com/legal
+defaultContentType: application/json
+servers:
+  subscriber:
+    url: example.com
+    protocol: https
+    description: |
+      The subscriber's HTTPS callback endpoint. BILL POSTs JSON event payloads
+      to the `notificationUrl` registered on the webhook subscription.
+channels:
+  vendor:
+    description: |
+      Vendor lifecycle events — vendor created, updated, archived, and
+      restored. Reference:
+      https://developer.bill.com/docs/vendor-webhook-notification-payloads
+    publish:
+      operationId: receiveVendorEvent
+      summary: Receive vendor lifecycle notification.
+      message:
+        $ref: '#/components/messages/VendorEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  vendorAutopay:
+    description: |
+      Vendor auto-pay events. Currently limited to `autopay.failed`. Available
+      only to select BILL partners. Reference:
+      https://developer.bill.com/docs/vendor-autopay-webhook-notification-payloads
+    publish:
+      operationId: receiveVendorAutopayEvent
+      summary: Receive vendor auto-pay failure notification.
+      message:
+        $ref: '#/components/messages/VendorAutopayFailedEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  bill:
+    description: |
+      AP bill lifecycle events — bill created, updated, archived, and
+      restored. Reference:
+      https://developer.bill.com/docs/bill-webhook-notification-payloads
+    publish:
+      operationId: receiveBillEvent
+      summary: Receive AP bill lifecycle notification.
+      message:
+        $ref: '#/components/messages/BillEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  payment:
+    description: |
+      AP payment events — `payment.updated` (status changes through the
+      money-movement lifecycle) and `payment.failed`. Reference:
+      https://developer.bill.com/docs/payment-webhook-notification-payloads
+    publish:
+      operationId: receivePaymentEvent
+      summary: Receive AP payment notification.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/PaymentUpdatedEvent'
+          - $ref: '#/components/messages/PaymentFailedEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  invoice:
+    description: |
+      AR invoice lifecycle events — invoice created, updated, archived, and
+      restored. Reference:
+      https://developer.bill.com/docs/invoice-webhook-notification-payloads
+    publish:
+      operationId: receiveInvoiceEvent
+      summary: Receive AR invoice lifecycle notification.
+      message:
+        $ref: '#/components/messages/InvoiceEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  bankAccount:
+    description: |
+      Bank account lifecycle events — `bank-account.created` and
+      `bank-account.updated`. Reference:
+      https://developer.bill.com/docs/bank-account-webhook-notification-payloads
+    publish:
+      operationId: receiveBankAccountEvent
+      summary: Receive bank-account lifecycle notification.
+      message:
+        $ref: '#/components/messages/BankAccountEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  cardAccount:
+    description: |
+      Card account lifecycle events — `card-account.created` and
+      `card-account.updated`. Reference:
+      https://developer.bill.com/docs/card-account-webhook-notification-payloads
+    publish:
+      operationId: receiveCardAccountEvent
+      summary: Receive card-account lifecycle notification.
+      message:
+        $ref: '#/components/messages/CardAccountEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  riskVerification:
+    description: |
+      Risk verification status updates — `risk-verification.updated`.
+      Reference:
+      https://developer.bill.com/docs/risk-verification-webhook-notification-payloads
+    publish:
+      operationId: receiveRiskVerificationEvent
+      summary: Receive risk-verification notification.
+      message:
+        $ref: '#/components/messages/RiskVerificationUpdatedEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  spendTransaction:
+    description: |
+      Spend & Expense transaction events — `spend.transaction.updated`.
+      Reference:
+      https://developer.bill.com/docs/spend-expense-transaction-notification-payloads
+    publish:
+      operationId: receiveSpendTransactionEvent
+      summary: Receive Spend & Expense transaction notification.
+      message:
+        $ref: '#/components/messages/SpendTransactionUpdatedEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  spendReimbursement:
+    description: |
+      Spend & Expense reimbursement events — `spend.reimbursement.created`,
+      `spend.reimbursement.updated`, `spend.reimbursement.deleted`. Reference:
+      https://developer.bill.com/docs/spend-expense-reimbursement-notification-payload
+    publish:
+      operationId: receiveSpendReimbursementEvent
+      summary: Receive Spend & Expense reimbursement notification.
+      message:
+        $ref: '#/components/messages/SpendReimbursementEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+  spendThreeDsChallenge:
+    description: |
+      Spend & Expense 3D Secure challenge events —
+      `spend.three-ds-challenge.created`. Reference:
+      https://developer.bill.com/docs/spend-expense-3ds-challenge-notification-payload
+    publish:
+      operationId: receiveSpendThreeDsChallengeEvent
+      summary: Receive Spend & Expense 3DS challenge notification.
+      message:
+        $ref: '#/components/messages/SpendThreeDsChallengeCreatedEvent'
+    bindings:
+      http:
+        type: request
+        method: POST
+components:
+  messageTraits:
+    BillSignedRequest:
+      headers:
+        type: object
+        properties:
+          x-bill-sha-signature:
+            type: string
+            description: |
+              Base64-encoded HMAC-SHA256 signature computed over the raw
+              request body using the subscription's `securityKey`.
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+        required:
+          - x-bill-sha-signature
+  messages:
+    VendorEvent:
+      name: VendorEvent
+      title: Vendor lifecycle event
+      summary: Vendor created, updated, archived, or restored.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - vendor
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataVendor'
+          vendor:
+            $ref: '#/components/schemas/Vendor'
+    VendorAutopayFailedEvent:
+      name: VendorAutopayFailedEvent
+      title: Vendor auto-pay failed
+      summary: Vendor auto-pay attempt failed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataAutopayFailed'
+          vendor:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+          createdBy:
+            type: string
+          updatedTime:
+            type: string
+            format: date-time
+          fundingAccount:
+            $ref: '#/components/schemas/FundingAccountRef'
+          errors:
+            type: array
+            items:
+              $ref: '#/components/schemas/EventError'
+    BillEvent:
+      name: BillEvent
+      title: AP bill lifecycle event
+      summary: AP bill created, updated, archived, or restored.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - bill
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataBill'
+          bill:
+            $ref: '#/components/schemas/Bill'
+    PaymentUpdatedEvent:
+      name: PaymentUpdatedEvent
+      title: AP payment updated
+      summary: |
+        A payment's status changed through the money-movement lifecycle.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - payment
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataPaymentUpdated'
+          payment:
+            $ref: '#/components/schemas/Payment'
+    PaymentFailedEvent:
+      name: PaymentFailedEvent
+      title: AP payment failed
+      summary: A payment creation request failed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - payment
+          - errors
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataPaymentFailed'
+          payment:
+            $ref: '#/components/schemas/PaymentFailedDetails'
+          errors:
+            type: array
+            items:
+              $ref: '#/components/schemas/EventError'
+    InvoiceEvent:
+      name: InvoiceEvent
+      title: AR invoice lifecycle event
+      summary: AR invoice created, updated, archived, or restored.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - invoice
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataInvoice'
+          invoice:
+            $ref: '#/components/schemas/Invoice'
+    BankAccountEvent:
+      name: BankAccountEvent
+      title: Bank account lifecycle event
+      summary: Bank account created or updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+          - bankAccount
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataBankAccount'
+          bankAccount:
+            $ref: '#/components/schemas/BankAccount'
+    CardAccountEvent:
+      name: CardAccountEvent
+      title: Card account lifecycle event
+      summary: Card account created or updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataCardAccount'
+          cardAccount:
+            type: object
+            description: |
+              Card account details. Field-level schema is documented at
+              https://developer.bill.com/docs/card-account-webhook-notification-payloads
+              and is not enumerated here.
+            additionalProperties: true
+    RiskVerificationUpdatedEvent:
+      name: RiskVerificationUpdatedEvent
+      title: Risk verification updated
+      summary: Risk verification status changed for an entity.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataRiskVerification'
+          riskVerification:
+            type: object
+            description: |
+              Risk verification details. Field-level schema is documented at
+              https://developer.bill.com/docs/risk-verification-webhook-notification-payloads
+              and is not enumerated here.
+            additionalProperties: true
+    SpendTransactionUpdatedEvent:
+      name: SpendTransactionUpdatedEvent
+      title: Spend & Expense transaction updated
+      summary: A Spend & Expense transaction was updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataSpendTransaction'
+          transaction:
+            type: object
+            description: |
+              Spend & Expense transaction details. Field-level schema is
+              documented at
+              https://developer.bill.com/docs/spend-expense-transaction-notification-payloads
+              and is not enumerated here.
+            additionalProperties: true
+    SpendReimbursementEvent:
+      name: SpendReimbursementEvent
+      title: Spend & Expense reimbursement event
+      summary: Spend & Expense reimbursement created, updated, or deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataSpendReimbursement'
+          reimbursement:
+            type: object
+            description: |
+              Spend & Expense reimbursement details. Field-level schema is
+              documented at
+              https://developer.bill.com/docs/spend-expense-reimbursement-notification-payload
+              and is not enumerated here.
+            additionalProperties: true
+    SpendThreeDsChallengeCreatedEvent:
+      name: SpendThreeDsChallengeCreatedEvent
+      title: Spend & Expense 3DS challenge created
+      summary: A 3D Secure challenge was issued for a Spend & Expense card.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/BillSignedRequest'
+      payload:
+        type: object
+        required:
+          - metadata
+        properties:
+          metadata:
+            $ref: '#/components/schemas/EventMetadataSpendThreeDsChallenge'
+          challenge:
+            type: object
+            description: |
+              3D Secure challenge details. Field-level schema is documented
+              at
+              https://developer.bill.com/docs/spend-expense-3ds-challenge-notification-payload
+              and is not enumerated here.
+            additionalProperties: true
+  schemas:
+    EventMetadataBase:
+      type: object
+      required:
+        - eventId
+        - subscriptionId
+        - organizationId
+        - eventType
+        - version
+      properties:
+        eventId:
+          type: string
+          format: uuid
+          description: Unique identifier for the event notification.
+        subscriptionId:
+          type: string
+          format: uuid
+          description: Identifier of the webhook subscription that produced this event.
+        organizationId:
+          type: string
+          description: BILL organization identifier the event belongs to.
+        eventType:
+          type: string
+          description: Dotted event type name.
+        version:
+          oneOf:
+            - type: string
+            - type: integer
+          description: Payload schema version.
+    EventMetadataVendor:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - vendor.created
+                - vendor.updated
+                - vendor.archived
+                - vendor.restored
+    EventMetadataAutopayFailed:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - autopay.failed
+    EventMetadataBill:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - bill.created
+                - bill.updated
+                - bill.archived
+                - bill.restored
+    EventMetadataPaymentUpdated:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - payment.updated
+    EventMetadataPaymentFailed:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - payment.failed
+    EventMetadataInvoice:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - invoice.created
+                - invoice.updated
+                - invoice.archived
+                - invoice.restored
+    EventMetadataBankAccount:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - bank-account.created
+                - bank-account.updated
+    EventMetadataCardAccount:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - card-account.created
+                - card-account.updated
+    EventMetadataRiskVerification:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - risk-verification.updated
+    EventMetadataSpendTransaction:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - spend.transaction.updated
+    EventMetadataSpendReimbursement:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - spend.reimbursement.created
+                - spend.reimbursement.updated
+                - spend.reimbursement.deleted
+    EventMetadataSpendThreeDsChallenge:
+      allOf:
+        - $ref: '#/components/schemas/EventMetadataBase'
+        - type: object
+          properties:
+            eventType:
+              type: string
+              enum:
+                - spend.three-ds-challenge.created
+    EventError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Vendor:
+      type: object
+      description: |
+        Vendor entity surfaced on vendor lifecycle events. Field set is the
+        documented subset; the BILL v3 REST API exposes the authoritative
+        vendor record.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        archived:
+          type: boolean
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+      additionalProperties: true
+    Bill:
+      type: object
+      properties:
+        id:
+          type: string
+        vendorId:
+          type: string
+        vendorName:
+          type: string
+        invoice:
+          type: object
+          properties:
+            invoiceNumber:
+              type: string
+            invoiceDate:
+              type: string
+              format: date-time
+        amount:
+          type: number
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        archived:
+          type: boolean
+        description:
+          type: string
+        dueDate:
+          type: string
+          format: date
+        paymentStatus:
+          type: string
+        payFromChartOfAccountId:
+          type: string
+        classifications:
+          type: object
+          properties:
+            chartOfAccountId:
+              type: string
+            accountingClassId:
+              type: string
+            departmentId:
+              type: string
+            locationId:
+              type: string
+        purchaseOrderNumber:
+          type: string
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: BILL payment identifier; begins with `stp`.
+        billIds:
+          type: array
+          items:
+            type: string
+        transactionNumber:
+          type: string
+        status:
+          type: string
+        createdBy:
+          type: string
+          description: User identifier; begins with `006`.
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        processDate:
+          type: string
+          format: date
+        funding:
+          type: object
+          properties:
+            amount:
+              type: number
+            currency:
+              type: string
+            fundingAccount:
+              $ref: '#/components/schemas/FundingAccount'
+        disbursement:
+          type: object
+          properties:
+            amount:
+              type: number
+            currency:
+              type: string
+            arrivesByDate:
+              type: string
+              format: date
+            disbursementAccount:
+              type: object
+              properties:
+                type:
+                  type: string
+                accountNumber:
+                  type: string
+              additionalProperties: true
+        vendor:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        billingType:
+          type: string
+          enum:
+            - BDC
+            - BILL_AUTOPAY
+            - NET_SYNC_FROM_ONLINE_PAYMENT
+            - NET_SYNC_FROM_OFFLINE_PAYMENT
+            - RECURRING_PAYMENT
+    PaymentFailedDetails:
+      type: object
+      properties:
+        bills:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              amount:
+                type: number
+        transactionNumber:
+          type: string
+        createdBy:
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        fundingAccount:
+          $ref: '#/components/schemas/FundingAccountRef'
+        vendor:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    FundingAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - BANK_ACCOUNT
+            - CARD_ACCOUNT
+            - WALLET
+            - AP_CARD
+        name:
+          type: string
+        accountNumber:
+          type: string
+        last4:
+          type: string
+    FundingAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    Invoice:
+      type: object
+      properties:
+        id:
+          type: string
+        customerId:
+          type: string
+        archived:
+          type: boolean
+        invoiceNumber:
+          type: string
+        invoiceDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        totalAmount:
+          type: number
+        dueAmount:
+          type: number
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        status:
+          type: string
+          description: e.g., OPEN, PAID_IN_FULL.
+        scheduledAmount:
+          type: number
+        creditAmount:
+          type: number
+        salesTaxTotal:
+          type: number
+        salesTaxPercentage:
+          type: number
+    BankAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        archived:
+          type: boolean
+        accountNumber:
+          type: string
+          description: Masked account number.
+        nameOnAccount:
+          type: string
+        routingNumber:
+          type: string
+        bankName:
+          type: string
+        status:
+          type: string
+          enum:
+            - NOT_VERIFIED
+            - VERIFIED
+            - PENDING
+            - BLOCKED
+            - EXPIRED
+            - INVALID
+            - UNDEFINED
+        createdBy:
+          type: string
+        type:
+          type: string
+          enum:
+            - CHECKING
+            - SAVINGS
+        ownerType:
+          type: string
+          enum:
+            - BUSINESS
+            - PERSONAL
+        createdTime:
+          type: string
+          format: date-time
+        updatedTime:
+          type: string
+          format: date-time
+        default:
+          type: object
+          properties:
+            payables:
+              type: boolean
+            receivables:
+              type: boolean

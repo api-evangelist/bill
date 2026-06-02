@@ -23,7 +23,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - aid: bill:v3-api
@@ -52,6 +52,8 @@ apis:
         url: https://developer.bill.com/docs/bill-v3-api-get-started
       - type: Postman
         url: https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview
+      - type: AsyncAPI
+        url: https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/asyncapi/bill-webhooks-asyncapi.yml
   - aid: bill:elements
     name: BILL Elements
     description: >-
