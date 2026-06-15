@@ -1,0 +1,3669 @@
+{
+  "item": [
+    {
+      "id": "a5bacfc8-1c47-4632-aca4-6c93542974dc",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d813e1b-66b9-4a55-a60b-ee6b131ebb5e",
+          "name": "Sign in to a BILL organization",
+          "request": {
+            "name": "Sign in to a BILL organization",
+            "description": {
+              "content": "Authenticates a BILL user. Returns a `sessionId` to be used as the\nsession identifier on subsequent requests (expires after 35 minutes of\ninactivity).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"devKey\": \"<string>\",\n  \"username\": \"<email>\",\n  \"organizationId\": \"<string>\",\n  \"password\": \"<password>\",\n  \"consoleApiToken\": \"<string>\",\n  \"rememberMeId\": \"<string>\",\n  \"device\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f7f65f8-7c61-4e27-9330-b6d00c1e23f2",
+              "name": "Authenticated session.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devKey\": \"<string>\",\n  \"username\": \"<email>\",\n  \"organizationId\": \"<string>\",\n  \"password\": \"<password>\",\n  \"consoleApiToken\": \"<string>\",\n  \"rememberMeId\": \"<string>\",\n  \"device\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessionId\": \"string\",\n  \"organizationId\": \"string\",\n  \"userId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0db6b13-4a39-4bd0-93cf-102a62645412",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devKey\": \"<string>\",\n  \"username\": \"<email>\",\n  \"organizationId\": \"<string>\",\n  \"password\": \"<password>\",\n  \"consoleApiToken\": \"<string>\",\n  \"rememberMeId\": \"<string>\",\n  \"device\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105ce63a-72b0-4768-bb7e-816e3023a75b",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"devKey\": \"<string>\",\n  \"username\": \"<email>\",\n  \"organizationId\": \"<string>\",\n  \"password\": \"<password>\",\n  \"consoleApiToken\": \"<string>\",\n  \"rememberMeId\": \"<string>\",\n  \"device\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6705b601-be68-432e-8765-08e7cafae0f2",
+          "name": "Sign out of the current session",
+          "request": {
+            "name": "Sign out of the current session",
+            "description": {},
+            "url": {
+              "path": [
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a189f8f0-237a-4ae4-92f8-98cc12c3ed1f",
+              "name": "Signed out.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff252b8b-ab18-470a-af05-db2fc030c6d5",
+          "name": "Add phone for multi-factor authentication",
+          "request": {
+            "name": "Add phone for multi-factor authentication",
+            "description": {},
+            "url": {
+              "path": [
+                "mfa",
+                "setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fcfa4be-5d93-41db-a6e8-f4b5f9dbb58e",
+              "name": "MFA setup initiated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mfa",
+                    "setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3481be2-626c-4059-978a-9bbc4dfff3ad",
+          "name": "Generate an MFA challenge",
+          "request": {
+            "name": "Generate an MFA challenge",
+            "description": {},
+            "url": {
+              "path": [
+                "mfa",
+                "challenge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f04c2bd-c8c3-4925-b34e-b9dbc30fe2f5",
+              "name": "MFA challenge issued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mfa",
+                    "challenge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "550d9bea-2939-4435-ab17-c273a2fe852c",
+          "name": "Retrieve current session details",
+          "request": {
+            "name": "Retrieve current session details",
+            "description": {},
+            "url": {
+              "path": [
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "905b76ef-ad9c-4776-a307-39ea7c5f6954",
+              "name": "Current session.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9a7f4746-5231-46b0-a0f9-5152110a1896",
+      "name": "Organizations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76d5cffa-c660-4817-a320-78343d834cde",
+          "name": "List accessible organizations",
+          "request": {
+            "name": "List accessible organizations",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf2e83ac-64bc-4546-a0d6-9c8363c4dd60",
+              "name": "Organizations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89567b62-b4d7-4bd4-9477-f12410ad69dc",
+          "name": "Restore an archived user",
+          "request": {
+            "name": "Restore an archived user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "931889c2-9dc7-4ec5-bb1d-06659f2c32da",
+              "name": "Restored.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4fe1b91e-3c51-4615-8114-558202306ed7",
+      "name": "Bills",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5e8ce7e-a6ae-46a7-b458-a1b578391a14",
+          "name": "List bills",
+          "request": {
+            "name": "List bills",
+            "description": {},
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1024d08b-afde-4aca-9d2a-a1bf1927cafd",
+              "name": "Bills.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"2003-12-13\",\n      \"dueDate\": \"1967-01-11\",\n      \"amount\": 4842.549899046914,\n      \"amountDue\": 4919.85724009817,\n      \"currency\": \"string\",\n      \"vendorId\": \"string\",\n      \"description\": \"string\",\n      \"approvalStatus\": \"string\",\n      \"paymentStatus\": \"string\",\n      \"archived\": true,\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 8144.291812817952,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 3079.6114405862218,\n          \"unitPrice\": 1003.0182369100627\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 2349.5927901631276,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 4021.6051957076115,\n          \"unitPrice\": 1604.1372455694702\n        }\n      ],\n      \"createdTime\": \"2011-02-28T22:08:14.259Z\",\n      \"updatedTime\": \"1947-06-11T08:50:25.001Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1955-04-26\",\n      \"dueDate\": \"1986-05-25\",\n      \"amount\": 4557.343492376242,\n      \"amountDue\": 3889.5754196971943,\n      \"currency\": \"string\",\n      \"vendorId\": \"string\",\n      \"description\": \"string\",\n      \"approvalStatus\": \"string\",\n      \"paymentStatus\": \"string\",\n      \"archived\": false,\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 1034.6755237791306,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 9150.455111552114,\n          \"unitPrice\": 1581.3831659236066\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 1705.9573589860588,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 4798.317719972888,\n          \"unitPrice\": 1060.7153722830865\n        }\n      ],\n      \"createdTime\": \"2016-07-13T20:43:10.077Z\",\n      \"updatedTime\": \"1947-07-10T07:38:11.329Z\"\n    }\n  ],\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74d80267-1aa7-4add-9a1e-48c1a38661b6",
+          "name": "Create a bill",
+          "request": {
+            "name": "Create a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9844180-7dee-4c7b-af97-cc858b952e19",
+              "name": "Created bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 4868.864061817107,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 6653.782177309889,\n      \"unitPrice\": 8505.252112430528\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 901.9584836178374,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 6619.57343892972,\n      \"unitPrice\": 792.3620038295043\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"invoiceNumber\": \"string\",\n  \"invoiceDate\": \"1955-10-03\",\n  \"dueDate\": \"2018-07-08\",\n  \"amount\": 6676.148876717669,\n  \"amountDue\": 5662.106400112876,\n  \"currency\": \"string\",\n  \"vendorId\": \"string\",\n  \"description\": \"string\",\n  \"approvalStatus\": \"string\",\n  \"paymentStatus\": \"string\",\n  \"archived\": true,\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 1552.2091298708197,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1186.0309127262146,\n      \"unitPrice\": 8273.419575461698\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 7743.7512035483,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 4627.732691544117,\n      \"unitPrice\": 5516.292120733481\n    }\n  ],\n  \"createdTime\": \"2011-05-08T04:50:32.346Z\",\n  \"updatedTime\": \"1995-09-12T20:06:50.266Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "042b4ae1-3a16-4535-ba2a-53b8102b4574",
+          "name": "Create multiple bills in one request",
+          "request": {
+            "name": "Create multiple bills in one request",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bills\": [\n    {\n      \"vendorId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"invoiceDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"billLineItems\": [\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        }\n      ],\n      \"description\": \"<string>\"\n    },\n    {\n      \"vendorId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"invoiceDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"billLineItems\": [\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        }\n      ],\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a7ce3c0-95ad-4e5f-8469-1d4aa1eaf327",
+              "name": "Bulk creation result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bills\": [\n    {\n      \"vendorId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1982-11-23\",\n      \"dueDate\": \"1988-02-12\",\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 5863.442322259407,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 5124.461375060081,\n          \"unitPrice\": 6816.9771487733515\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 1361.5407350911091,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 4148.257443624701,\n          \"unitPrice\": 1002.6340405878742\n        }\n      ],\n      \"description\": \"string\"\n    },\n    {\n      \"vendorId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1993-05-17\",\n      \"dueDate\": \"1953-02-11\",\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 5747.749761524721,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 6571.037582593748,\n          \"unitPrice\": 4416.958579834778\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 2157.2754792264204,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 8736.531462266963,\n          \"unitPrice\": 5808.3897397188575\n        }\n      ],\n      \"description\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd903fc-d072-401e-a9f6-eaf21373d13b",
+          "name": "Retrieve a bill",
+          "request": {
+            "name": "Retrieve a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95ad1e6b-08f2-4858-8ec0-750da90b25a5",
+              "name": "Bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"invoiceNumber\": \"string\",\n  \"invoiceDate\": \"1955-10-03\",\n  \"dueDate\": \"2018-07-08\",\n  \"amount\": 6676.148876717669,\n  \"amountDue\": 5662.106400112876,\n  \"currency\": \"string\",\n  \"vendorId\": \"string\",\n  \"description\": \"string\",\n  \"approvalStatus\": \"string\",\n  \"paymentStatus\": \"string\",\n  \"archived\": true,\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 1552.2091298708197,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1186.0309127262146,\n      \"unitPrice\": 8273.419575461698\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 7743.7512035483,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 4627.732691544117,\n      \"unitPrice\": 5516.292120733481\n    }\n  ],\n  \"createdTime\": \"2011-05-08T04:50:32.346Z\",\n  \"updatedTime\": \"1995-09-12T20:06:50.266Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c230468-0b2c-40ac-9654-411b4001176f",
+          "name": "Update a bill",
+          "request": {
+            "name": "Update a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "090a4537-893f-417a-ae0e-77b94e3589db",
+              "name": "Updated bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 4868.864061817107,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 6653.782177309889,\n      \"unitPrice\": 8505.252112430528\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 901.9584836178374,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 6619.57343892972,\n      \"unitPrice\": 792.3620038295043\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e82189cf-02fe-4b3e-b472-ab7a8a87830e",
+          "name": "Archive a bill",
+          "request": {
+            "name": "Archive a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deeda743-e4ff-4153-87fa-ca8179df89c8",
+              "name": "Archived.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "29ea5921-95b8-4048-abf0-a2e99233e882",
+      "name": "Vendors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ada67dd3-ff8a-42bb-8500-47f913d339b6",
+          "name": "List vendors",
+          "request": {
+            "name": "List vendors",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd55c33c-aad0-4003-81a9-799f3c8d2482",
+              "name": "Vendors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e974fb7-8c05-4301-97e7-97df90f29ce4",
+          "name": "Create a vendor",
+          "request": {
+            "name": "Create a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a4161e1-69e7-4029-a4a2-032cead5b931",
+              "name": "Created vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b623280c-0fff-4343-bdb2-a0c51d749e45",
+          "name": "Retrieve a vendor",
+          "request": {
+            "name": "Retrieve a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82606042-9905-4c91-ad43-0120d771e97a",
+              "name": "Vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "610e782f-9412-4ad0-a591-fb3c342268eb",
+          "name": "Update a vendor",
+          "request": {
+            "name": "Update a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f83dca7a-ef93-445e-9f30-166c6463e883",
+              "name": "Updated vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e947b779-7d9e-4c17-9ce9-9e4598029e50",
+          "name": "Add a vendor bank account",
+          "request": {
+            "name": "Add a vendor bank account",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId",
+                "bank-account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "654ef401-0d91-4773-a55c-be710237f22f",
+              "name": "Added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId",
+                    "bank-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7a40cce8-3af3-46d9-af5e-e845de88d843",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f597b75b-12bc-4dcb-b844-60bbc3bdee32",
+          "name": "List payments",
+          "request": {
+            "name": "List payments",
+            "description": {},
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a85e1a4-4a62-49a4-bed9-7dce8b27b24c",
+              "name": "Payments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df7b1ea6-8851-4331-8dff-4eff85d22945",
+          "name": "Create a payment (MFA required)",
+          "request": {
+            "name": "Create a payment (MFA required)",
+            "description": {},
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"processDate\": \"<date>\",\n  \"billPays\": [\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    },\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    }\n  ],\n  \"chartOfAccountId\": \"<string>\",\n  \"fundingAccountId\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84eaf70a-df8d-4318-bbe1-07a2f6db2827",
+              "name": "Created payment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"processDate\": \"<date>\",\n  \"billPays\": [\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    },\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    }\n  ],\n  \"chartOfAccountId\": \"<string>\",\n  \"fundingAccountId\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d1ea7ff-72b0-4090-825c-99caa71a7ee4",
+          "name": "Create a bulk payment (MFA required)",
+          "request": {
+            "name": "Create a bulk payment (MFA required)",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payments\": [\n    {\n      \"vendorId\": \"<string>\",\n      \"processDate\": \"<date>\",\n      \"billPays\": [\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"chartOfAccountId\": \"<string>\",\n      \"fundingAccountId\": \"<string>\",\n      \"memo\": \"<string>\"\n    },\n    {\n      \"vendorId\": \"<string>\",\n      \"processDate\": \"<date>\",\n      \"billPays\": [\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"chartOfAccountId\": \"<string>\",\n      \"fundingAccountId\": \"<string>\",\n      \"memo\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "637b1968-30d2-4800-9075-9a8a575fb1a8",
+              "name": "Bulk payment result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payments\": [\n    {\n      \"vendorId\": \"string\",\n      \"processDate\": \"2014-09-27\",\n      \"billPays\": [\n        {\n          \"billId\": \"string\",\n          \"amount\": 3483.559213336536\n        },\n        {\n          \"billId\": \"string\",\n          \"amount\": 5178.221052093312\n        }\n      ],\n      \"chartOfAccountId\": \"string\",\n      \"fundingAccountId\": \"string\",\n      \"memo\": \"string\"\n    },\n    {\n      \"vendorId\": \"string\",\n      \"processDate\": \"1990-04-25\",\n      \"billPays\": [\n        {\n          \"billId\": \"string\",\n          \"amount\": 4277.76899537011\n        },\n        {\n          \"billId\": \"string\",\n          \"amount\": 9821.473173985958\n        }\n      ],\n      \"chartOfAccountId\": \"string\",\n      \"fundingAccountId\": \"string\",\n      \"memo\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e6f8d0f-fc98-4260-bf1d-8fa0bb99b64f",
+          "name": "Get payment details",
+          "request": {
+            "name": "Get payment details",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b42c624-375d-4312-aefc-1bf592a8306c",
+              "name": "Payment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19225ce9-e1dc-4525-8ae5-584cd74a45c1",
+          "name": "Cancel a scheduled payment",
+          "request": {
+            "name": "Cancel a scheduled payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb103ceb-bd88-4626-81b5-7e492862c888",
+              "name": "Cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a987d44-9dc0-4972-b6a9-5f13b898e421",
+          "name": "Void a processed payment",
+          "request": {
+            "name": "Void a processed payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4d874cc-cd8f-40ca-95d2-e6a7e81d6672",
+              "name": "Voided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d3d3e83e-1ee6-45c3-84bb-1f2cf3a0c4d6",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6489f453-86ec-42ca-8976-550dc7e418df",
+          "name": "List invoices",
+          "request": {
+            "name": "List invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4fd9f1a-c40f-47af-b63b-8a4c9fffa154",
+              "name": "Invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab9774aa-1fe5-43de-9030-b6b5f79dec7b",
+          "name": "Create an invoice",
+          "request": {
+            "name": "Create an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38d704b7-1892-4cd2-b208-c1e7a9256ee9",
+              "name": "Created invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac4750ad-16a0-4e54-af98-7160abf30062",
+          "name": "Retrieve an invoice",
+          "request": {
+            "name": "Retrieve an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3f363ae-777f-409e-9b68-588e50a58778",
+              "name": "Invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "059fc569-abc2-4a51-8b9a-7fe0dd8fafb2",
+          "name": "Update an invoice",
+          "request": {
+            "name": "Update an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c32a6412-c219-4349-8017-558a68d81ce5",
+              "name": "Updated invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "baa37800-bb42-4e43-886e-5622d3e436dc",
+          "name": "Send an invoice to the customer",
+          "request": {
+            "name": "Send an invoice to the customer",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3719db8-f225-4a63-93d6-21313ef16126",
+              "name": "Sent.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "826c6aa2-6083-4cca-b6a8-4da7cddd1dda",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5cce9e2d-d6ad-47ac-80f2-97c4659db15b",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {},
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b904a7cc-8721-48d6-aae6-b864998592b0",
+              "name": "Customers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54d61d00-e25e-4078-a4b4-538989615b53",
+          "name": "Create a customer",
+          "request": {
+            "name": "Create a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"billingAddress\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"shippingAddress\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"accountNumber\": \"<string>\",\n  \"balance\": \"<double>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e186835e-565f-44bc-9424-91c2c97ae423",
+              "name": "Created customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"billingAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"shippingAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"accountNumber\": \"<string>\",\n  \"balance\": \"<double>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30e330c0-8fd0-4a08-ae38-789b9347b619",
+          "name": "Retrieve a customer",
+          "request": {
+            "name": "Retrieve a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "656af7bd-3803-43b0-aa3e-7a457740634b",
+              "name": "Customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b95c369-76a4-4b4b-94b0-c7b3e0820f3b",
+          "name": "Update a customer",
+          "request": {
+            "name": "Update a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"billingAddress\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"shippingAddress\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"accountNumber\": \"<string>\",\n  \"balance\": \"<double>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f9e0897-bed4-4197-8843-d3aa6f4178ad",
+              "name": "Updated customer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"billingAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"shippingAddress\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"accountNumber\": \"<string>\",\n  \"balance\": \"<double>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64902ca8-8a7f-48be-be3f-b5b6595257be",
+          "name": "Add a customer bank account",
+          "request": {
+            "name": "Add a customer bank account",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customerId",
+                "bank-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17aca9f0-0f2d-4427-a2f1-ab8a667b70d5",
+              "name": "Added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId",
+                    "bank-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5bd7b324-eeed-469d-be00-1fa6591954bd",
+      "name": "Funding Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1dd3da6a-cb64-48e1-bf7f-befccd07f3e3",
+          "name": "List bank funding accounts",
+          "request": {
+            "name": "List bank funding accounts",
+            "description": {},
+            "url": {
+              "path": [
+                "funding-accounts",
+                "banks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad739f53-cc28-4b2f-bce9-e4d923322e56",
+              "name": "Bank funding accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "funding-accounts",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be183782-92c1-4e3d-a11f-fec3be86f272",
+          "name": "Create a bank funding account (MFA required)",
+          "request": {
+            "name": "Create a bank funding account (MFA required)",
+            "description": {},
+            "url": {
+              "path": [
+                "funding-accounts",
+                "banks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aefff609-27c1-4939-8862-8bc9255998b6",
+              "name": "Created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "funding-accounts",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a06d7588-7b66-45e4-b3f0-39fc7c4ca88a",
+          "name": "Verify a bank funding account",
+          "request": {
+            "name": "Verify a bank funding account",
+            "description": {},
+            "url": {
+              "path": [
+                "funding-accounts",
+                "banks",
+                ":bankAccountId",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bankAccountId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c399b5ed-ba11-4a67-90d9-4879064a4d08",
+              "name": "Verification result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "funding-accounts",
+                    "banks",
+                    ":bankAccountId",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bankAccountId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1dedc444-bb69-4cd4-9d9b-1431ab550cf8",
+      "name": "Webhooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6e5b419-ed7e-43e7-aa9e-670a6428ec2c",
+          "name": "List webhook subscriptions",
+          "request": {
+            "name": "List webhook subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "975dc71a-74d9-4214-98e3-c8731c431502",
+              "name": "Webhook subscriptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13da41bc-8163-4f1e-a407-062aba085461",
+          "name": "Create a webhook subscription",
+          "request": {
+            "name": "Create a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"secret\": \"<string>\",\n  \"enabled\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23f1bfcb-9dd4-4add-ab82-095e3d137440",
+              "name": "Created webhook.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"events\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"secret\": \"<string>\",\n  \"enabled\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "793df3d3-b215-4913-88a4-759e235f645e",
+          "name": "Remove a webhook subscription",
+          "request": {
+            "name": "Remove a webhook subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhookId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01588dd7-eef5-4dd3-a047-b5b569d645a8",
+              "name": "Removed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.prod.bill.com/connect/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "566369d7-6279-4025-bcfc-148a30c1333b",
+    "name": "BILL v3 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing access to BILL's Accounts Payable, Accounts Receivable,\nand Spend & Expense capabilities — bills, invoices, vendors, customers,\npayments, funding accounts, organizations, webhooks, and authentication\nworkflows.\n\nBest-effort OpenAPI reconstruction from BILL's public developer portal at\nhttps://developer.bill.com/docs/home. Authoritative reference and Postman\ncollection live under https://developer.bill.com/reference and\nhttps://developer.bill.com/llms.txt.\n\n\nContact Support:\n Name: BILL Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
