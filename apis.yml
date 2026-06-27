@@ -71,7 +71,7 @@ apis:
 common:
   - type: Website
     url: https://www.bill.com
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.bill.com
   - type: Documentation
     url: https://developer.bill.com/docs/home
@@ -79,14 +79,14 @@ common:
     url: https://developer.bill.com/reference
   - type: Pricing
     url: https://www.bill.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://app.bill.com/Signup
   - type: Support
     url: https://developersupport.bill.com
   - type: LinkedIn
     url: https://www.linkedin.com/company/bill-com
 
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developer.bill.com/llms.txt
 maintainers:
   - FN: Kin Lane
