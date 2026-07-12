@@ -69,6 +69,10 @@ apis:
         url: https://developer.bill.com/docs/home
 
 common:
+  - type: DomainSecurity
+    url: security/bill-domain-security.yml
+  - type: Authentication
+    url: authentication/bill-authentication.yml
   - type: Website
     url: https://www.bill.com
   - type: DeveloperPortal
