@@ -69,6 +69,8 @@ apis:
         url: https://developer.bill.com/docs/home
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/bill-agentic-access.yml
   - type: DomainSecurity
     url: security/bill-domain-security.yml
   - type: Authentication
