@@ -1,0 +1,188 @@
+openapi: 3.1.0
+info:
+  title: BILL v3 Authentication Customers API
+  description: 'REST API providing access to BILL''s Accounts Payable, Accounts Receivable,
+
+    and Spend & Expense capabilities — bills, invoices, vendors, customers,
+
+    payments, funding accounts, organizations, webhooks, and authentication
+
+    workflows.
+
+
+    Best-effort OpenAPI reconstruction from BILL''s public developer portal at
+
+    https://developer.bill.com/docs/home. Authoritative reference and Postman
+
+    collection live under https://developer.bill.com/reference and
+
+    https://developer.bill.com/llms.txt.
+
+    '
+  version: 3.0.0
+  contact:
+    name: BILL Developer Portal
+    url: https://developer.bill.com/docs/home
+  license:
+    name: Proprietary
+servers:
+- url: https://gateway.prod.bill.com/connect/v3
+  description: BILL production gateway (Connect v3)
+- url: https://gateway.stage.bill.com/connect/v3
+  description: BILL sandbox gateway (Connect v3)
+- url: https://api.bill.com/v3
+  description: BILL production API
+- url: https://api-sandbox.bill.com/v3
+  description: BILL sandbox API
+security:
+- sessionAuth: []
+tags:
+- name: Customers
+paths:
+  /customers:
+    get:
+      tags:
+      - Customers
+      summary: List customers
+      operationId: listCustomers
+      responses:
+        '200':
+          description: Customers.
+    post:
+      tags:
+      - Customers
+      summary: Create a customer
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreate'
+      responses:
+        '201':
+          description: Created customer.
+  /customers/{customerId}:
+    parameters:
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Customers
+      summary: Retrieve a customer
+      operationId: getCustomer
+      responses:
+        '200':
+          description: Customer.
+    patch:
+      tags:
+      - Customers
+      summary: Update a customer
+      operationId: updateCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreate'
+      responses:
+        '200':
+          description: Updated customer.
+  /customers/{customerId}/bank-accounts:
+    parameters:
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Customers
+      summary: Add a customer bank account
+      operationId: addCustomerBankAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccount'
+      responses:
+        '201':
+          description: Added.
+components:
+  schemas:
+    BankAccount:
+      type: object
+      required:
+      - routingNumber
+      - accountNumber
+      - accountType
+      properties:
+        routingNumber:
+          type: string
+        accountNumber:
+          type: string
+        accountType:
+          type: string
+          enum:
+          - CHECKING
+          - SAVINGS
+        nameOnAccount:
+          type: string
+        verified:
+          type: boolean
+    CustomerCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        accountNumber:
+          type: string
+        balance:
+          type: number
+          format: double
+        currency:
+          type: string
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        stateOrProvince:
+          type: string
+        zipOrPostalCode:
+          type: string
+        country:
+          type: string
+  securitySchemes:
+    sessionAuth:
+      type: apiKey
+      in: header
+      name: sessionId
+      description: 'Session identifier obtained from `POST /login`. Expires after 35 minutes
+
+        of inactivity. A `devKey` (developer key) is also required on requests
+
+        and is sent alongside `sessionId` in the appropriate header per BILL''s
+
+        official reference.
+
+        '

@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: BILL v3 Authentication Webhooks API
+  description: 'REST API providing access to BILL''s Accounts Payable, Accounts Receivable,
+
+    and Spend & Expense capabilities — bills, invoices, vendors, customers,
+
+    payments, funding accounts, organizations, webhooks, and authentication
+
+    workflows.
+
+
+    Best-effort OpenAPI reconstruction from BILL''s public developer portal at
+
+    https://developer.bill.com/docs/home. Authoritative reference and Postman
+
+    collection live under https://developer.bill.com/reference and
+
+    https://developer.bill.com/llms.txt.
+
+    '
+  version: 3.0.0
+  contact:
+    name: BILL Developer Portal
+    url: https://developer.bill.com/docs/home
+  license:
+    name: Proprietary
+servers:
+- url: https://gateway.prod.bill.com/connect/v3
+  description: BILL production gateway (Connect v3)
+- url: https://gateway.stage.bill.com/connect/v3
+  description: BILL sandbox gateway (Connect v3)
+- url: https://api.bill.com/v3
+  description: BILL production API
+- url: https://api-sandbox.bill.com/v3
+  description: BILL sandbox API
+security:
+- sessionAuth: []
+tags:
+- name: Webhooks
+paths:
+  /webhooks:
+    get:
+      tags:
+      - Webhooks
+      summary: List webhook subscriptions
+      operationId: listWebhooks
+      responses:
+        '200':
+          description: Webhook subscriptions.
+    post:
+      tags:
+      - Webhooks
+      summary: Create a webhook subscription
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreate'
+      responses:
+        '201':
+          description: Created webhook.
+  /webhooks/{webhookId}:
+    parameters:
+    - name: webhookId
+      in: path
+      required: true
+      schema:
+        type: string
+    delete:
+      tags:
+      - Webhooks
+      summary: Remove a webhook subscription
+      operationId: deleteWebhook
+      responses:
+        '204':
+          description: Removed.
+components:
+  schemas:
+    WebhookCreate:
+      type: object
+      required:
+      - url
+      - events
+      properties:
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+        enabled:
+          type: boolean
+          default: true
+  securitySchemes:
+    sessionAuth:
+      type: apiKey
+      in: header
+      name: sessionId
+      description: 'Session identifier obtained from `POST /login`. Expires after 35 minutes
+
+        of inactivity. A `devKey` (developer key) is also required on requests
+
+        and is sent alongside `sessionId` in the appropriate header per BILL''s
+
+        official reference.
+
+        '
