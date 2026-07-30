@@ -10,7 +10,19 @@ description: >-
   API uses session-based authentication with API keys and developer keys
   against production and sandbox gateways.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bill.png
 tags:
   - Accounts Payable
   - Accounts Receivable
@@ -26,48 +38,135 @@ created: '2026-05-11'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-  - aid: bill:v3-api
-    name: BILL v3 API
-    description: >-
-      REST API providing full-breadth access to BILL's Accounts Payable,
-      Accounts Receivable, and Spend & Expense capabilities including
-      bills, invoices, vendors, customers, payments, approvals, and
-      webhook event notifications. Production calls are made to
-      https://gateway.prod.bill.com/connect/v3 with sandbox at
-      https://gateway.stage.bill.com/connect/v3.
-    humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
-    baseURL: https://gateway.prod.bill.com/connect/v3
-    tags:
-      - Accounts Payable
-      - Accounts Receivable
-      - Spend Management
-      - Payments
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://developer.bill.com/docs/home
-      - type: APIReference
-        url: https://developer.bill.com/reference
-      - type: GettingStarted
-        url: https://developer.bill.com/docs/bill-v3-api-get-started
-      - type: Postman
-        url: https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview
-      - type: AsyncAPI
-        url: https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/asyncapi/bill-webhooks-asyncapi.yml
-  - aid: bill:elements
-    name: BILL Elements
-    description: >-
-      Low-code, embeddable UI components that surface the BILL Accounts
-      Payable workflow inside partner applications with minimal
-      development effort.
-    humanURL: https://developer.bill.com/docs/home
-    tags:
-      - Embeddable UI
-      - Accounts Payable
-    properties:
-      - type: Documentation
-        url: https://developer.bill.com/docs/home
-
+- aid: bill:v3-api
+  name: BILL v3 API
+  description: >-
+    REST API providing full-breadth access to BILL's Accounts Payable, Accounts Receivable, and Spend
+    & Expense capabilities including bills, invoices, vendors, customers, payments, approvals, and webhook
+    event notifications. Production calls are made to https://gateway.prod.bill.com/connect/v3 with sandbox
+    at https://gateway.stage.bill.com/connect/v3.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Accounts Payable
+  - Accounts Receivable
+  - Spend Management
+  - Payments
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://developer.bill.com/docs/home
+  - type: APIReference
+    url: https://developer.bill.com/reference
+  - type: GettingStarted
+    url: https://developer.bill.com/docs/bill-v3-api-get-started
+  - type: Postman
+    url: https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/asyncapi/bill-webhooks-asyncapi.yml
+- aid: bill:elements
+  name: BILL Elements
+  description: >-
+    Low-code, embeddable UI components that surface the BILL Accounts Payable workflow inside partner
+    applications with minimal development effort.
+  humanURL: https://developer.bill.com/docs/home
+  tags:
+  - Embeddable UI
+  - Accounts Payable
+  properties:
+  - type: Documentation
+    url: https://developer.bill.com/docs/home
+- aid: bill:bill-authentication-api
+  name: BILL Authentication API
+  description: The Authentication API from BILL — 5 operation(s) for authentication.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-authentication-api-openapi.yml
+- aid: bill:bill-bills-api
+  name: BILL Bills API
+  description: The Bills API from BILL — 4 operation(s) for bills.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Bills
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-bills-api-openapi.yml
+- aid: bill:bill-customers-api
+  name: BILL Customers API
+  description: The Customers API from BILL — 3 operation(s) for customers.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-customers-api-openapi.yml
+- aid: bill:bill-funding-accounts-api
+  name: BILL Funding Accounts API
+  description: The Funding Accounts API from BILL — 2 operation(s) for funding accounts.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Funding Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-funding-accounts-api-openapi.yml
+- aid: bill:bill-invoices-api
+  name: BILL Invoices API
+  description: The Invoices API from BILL — 3 operation(s) for invoices.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-invoices-api-openapi.yml
+- aid: bill:bill-organizations-api
+  name: BILL Organizations API
+  description: The Organizations API from BILL — 2 operation(s) for organizations.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-organizations-api-openapi.yml
+- aid: bill:bill-payments-api
+  name: BILL Payments API
+  description: The Payments API from BILL — 5 operation(s) for payments.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-payments-api-openapi.yml
+- aid: bill:bill-vendors-api
+  name: BILL Vendors API
+  description: The Vendors API from BILL — 3 operation(s) for vendors.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-vendors-api-openapi.yml
+- aid: bill:bill-webhooks-api
+  name: BILL Webhooks API
+  description: The Webhooks API from BILL — 2 operation(s) for webhooks.
+  humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
+  baseURL: https://gateway.prod.bill.com/connect/v3
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/bill-webhooks-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/bill-agentic-access.yml
