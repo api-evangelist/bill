@@ -1,0 +1,30 @@
+{
+  "provider": "bill",
+  "sources": [
+    "bill-authentication-api-openapi.yml",
+    "bill-bills-api-openapi.yml",
+    "bill-customers-api-openapi.yml",
+    "bill-funding-accounts-api-openapi.yml",
+    "bill-invoices-api-openapi.yml",
+    "bill-organizations-api-openapi.yml",
+    "bill-payments-api-openapi.yml",
+    "bill-vendors-api-openapi.yml",
+    "bill-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "bill-authentication-api-openapi.yml",
+    "bill-bills-api-openapi.yml",
+    "bill-customers-api-openapi.yml",
+    "bill-funding-accounts-api-openapi.yml",
+    "bill-invoices-api-openapi.yml",
+    "bill-organizations-api-openapi.yml",
+    "bill-payments-api-openapi.yml",
+    "bill-vendors-api-openapi.yml",
+    "bill-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,750 @@
+openapi: 3.1.0
+info:
+  title: BILL v3 API
+  description: |
+    REST API providing access to BILL's Accounts Payable, Accounts Receivable,
+    and Spend & Expense capabilities — bills, invoices, vendors, customers,
+    payments, funding accounts, organizations, webhooks, and authentication
+    workflows.
+
+    Best-effort OpenAPI reconstruction from BILL's public developer portal at
+    https://developer.bill.com/docs/home. Authoritative reference and Postman
+    collection live under https://developer.bill.com/reference and
+    https://developer.bill.com/llms.txt.
+  version: '3.0.0'
+  contact:
+    name: BILL Developer Portal
+    url: https://developer.bill.com/docs/home
+  license:
+    name: Proprietary
+servers:
+  - url: https://gateway.prod.bill.com/connect/v3
+    description: BILL production gateway (Connect v3)
+  - url: https://gateway.stage.bill.com/connect/v3
+    description: BILL sandbox gateway (Connect v3)
+  - url: https://api.bill.com/v3
+    description: BILL production API
+  - url: https://api-sandbox.bill.com/v3
+    description: BILL sandbox API
+security:
+  - sessionAuth: []
+tags:
+  - name: Authentication
+  - name: Organizations
+  - name: Bills
+  - name: Vendors
+  - name: Payments
+  - name: Invoices
+  - name: Customers
+  - name: Funding Accounts
+  - name: Webhooks
+paths:
+  /login:
+    post:
+      tags: [Authentication]
+      summary: Sign in to a BILL organization
+      description: |
+        Authenticates a BILL user. Returns a `sessionId` to be used as the
+        session identifier on subsequent requests (expires after 35 minutes of
+        inactivity).
+      operationId: login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LoginRequest' }
+      responses:
+        '200':
+          description: Authenticated session.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LoginResponse' }
+        '4XX':
+          $ref: '#/components/responses/Error'
+        '5XX':
+          $ref: '#/components/responses/Error'
+  /logout:
+    post:
+      tags: [Authentication]
+      summary: Sign out of the current session
+      operationId: logout
+      responses:
+        '200':
+          description: Signed out.
+  /mfa/setup:
+    post:
+      tags: [Authentication]
+      summary: Add phone for multi-factor authentication
+      operationId: setupMfa
+      responses:
+        '200':
+          description: MFA setup initiated.
+  /mfa/challenge:
+    post:
+      tags: [Authentication]
+      summary: Generate an MFA challenge
+      operationId: challengeMfa
+      responses:
+        '200':
+          description: MFA challenge issued.
+  /session:
+    get:
+      tags: [Authentication]
+      summary: Retrieve current session details
+      operationId: getSession
+      responses:
+        '200':
+          description: Current session.
+  /organizations:
+    get:
+      tags: [Organizations]
+      summary: List accessible organizations
+      operationId: listOrganizations
+      responses:
+        '200':
+          description: Organizations.
+  /users/{userId}/restore:
+    post:
+      tags: [Organizations]
+      summary: Restore an archived user
+      operationId: restoreUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Restored.
+  /bills:
+    get:
+      tags: [Bills]
+      summary: List bills
+      operationId: listBills
+      parameters:
+        - $ref: '#/components/parameters/Max'
+        - $ref: '#/components/parameters/Page'
+        - name: filters
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Bills.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BillList' }
+    post:
+      tags: [Bills]
+      summary: Create a bill
+      operationId: createBill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BillCreate' }
+      responses:
+        '201':
+          description: Created bill.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Bill' }
+  /bills/bulk:
+    post:
+      tags: [Bills]
+      summary: Create multiple bills in one request
+      operationId: createBillsBulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [bills]
+              properties:
+                bills:
+                  type: array
+                  items: { $ref: '#/components/schemas/BillCreate' }
+      responses:
+        '200':
+          description: Bulk creation result.
+  /bills/{billId}:
+    parameters:
+      - $ref: '#/components/parameters/BillId'
+    get:
+      tags: [Bills]
+      summary: Retrieve a bill
+      operationId: getBill
+      responses:
+        '200':
+          description: Bill.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Bill' }
+    patch:
+      tags: [Bills]
+      summary: Update a bill
+      operationId: updateBill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BillCreate' }
+      responses:
+        '200':
+          description: Updated bill.
+  /bills/{billId}/archive:
+    parameters:
+      - $ref: '#/components/parameters/BillId'
+    post:
+      tags: [Bills]
+      summary: Archive a bill
+      operationId: archiveBill
+      responses:
+        '200':
+          description: Archived.
+  /vendors:
+    get:
+      tags: [Vendors]
+      summary: List vendors
+      operationId: listVendors
+      parameters:
+        - $ref: '#/components/parameters/Max'
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Vendors.
+    post:
+      tags: [Vendors]
+      summary: Create a vendor
+      operationId: createVendor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/VendorCreate' }
+      responses:
+        '201':
+          description: Created vendor.
+  /vendors/{vendorId}:
+    parameters:
+      - name: vendorId
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Vendors]
+      summary: Retrieve a vendor
+      operationId: getVendor
+      responses:
+        '200':
+          description: Vendor.
+    patch:
+      tags: [Vendors]
+      summary: Update a vendor
+      operationId: updateVendor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/VendorCreate' }
+      responses:
+        '200':
+          description: Updated vendor.
+  /vendors/{vendorId}/bank-account:
+    parameters:
+      - name: vendorId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Vendors]
+      summary: Add a vendor bank account
+      operationId: addVendorBankAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BankAccount' }
+      responses:
+        '201':
+          description: Added.
+  /payments:
+    get:
+      tags: [Payments]
+      summary: List payments
+      operationId: listPayments
+      parameters:
+        - $ref: '#/components/parameters/Max'
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Payments.
+    post:
+      tags: [Payments]
+      summary: Create a payment (MFA required)
+      operationId: createPayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PaymentCreate' }
+      responses:
+        '201':
+          description: Created payment.
+  /payments/bulk:
+    post:
+      tags: [Payments]
+      summary: Create a bulk payment (MFA required)
+      operationId: createPaymentsBulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [payments]
+              properties:
+                payments:
+                  type: array
+                  items: { $ref: '#/components/schemas/PaymentCreate' }
+      responses:
+        '200':
+          description: Bulk payment result.
+  /payments/{paymentId}:
+    parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Payments]
+      summary: Get payment details
+      operationId: getPayment
+      responses:
+        '200':
+          description: Payment.
+  /payments/{paymentId}/cancel:
+    parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Payments]
+      summary: Cancel a scheduled payment
+      operationId: cancelPayment
+      responses:
+        '200':
+          description: Cancelled.
+  /payments/{paymentId}/void:
+    parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Payments]
+      summary: Void a processed payment
+      operationId: voidPayment
+      responses:
+        '200':
+          description: Voided.
+  /invoices:
+    get:
+      tags: [Invoices]
+      summary: List invoices
+      operationId: listInvoices
+      responses:
+        '200':
+          description: Invoices.
+    post:
+      tags: [Invoices]
+      summary: Create an invoice
+      operationId: createInvoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/InvoiceCreate' }
+      responses:
+        '201':
+          description: Created invoice.
+  /invoices/{invoiceId}:
+    parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Invoices]
+      summary: Retrieve an invoice
+      operationId: getInvoice
+      responses:
+        '200':
+          description: Invoice.
+    patch:
+      tags: [Invoices]
+      summary: Update an invoice
+      operationId: updateInvoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/InvoiceCreate' }
+      responses:
+        '200':
+          description: Updated invoice.
+  /invoices/{invoiceId}/send:
+    parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Invoices]
+      summary: Send an invoice to the customer
+      operationId: sendInvoice
+      responses:
+        '200':
+          description: Sent.
+  /customers:
+    get:
+      tags: [Customers]
+      summary: List customers
+      operationId: listCustomers
+      responses:
+        '200':
+          description: Customers.
+    post:
+      tags: [Customers]
+      summary: Create a customer
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CustomerCreate' }
+      responses:
+        '201':
+          description: Created customer.
+  /customers/{customerId}:
+    parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Customers]
+      summary: Retrieve a customer
+      operationId: getCustomer
+      responses:
+        '200':
+          description: Customer.
+    patch:
+      tags: [Customers]
+      summary: Update a customer
+      operationId: updateCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CustomerCreate' }
+      responses:
+        '200':
+          description: Updated customer.
+  /customers/{customerId}/bank-accounts:
+    parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Customers]
+      summary: Add a customer bank account
+      operationId: addCustomerBankAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BankAccount' }
+      responses:
+        '201':
+          description: Added.
+  /funding-accounts/banks:
+    get:
+      tags: [Funding Accounts]
+      summary: List bank funding accounts
+      operationId: listBankFundingAccounts
+      responses:
+        '200':
+          description: Bank funding accounts.
+    post:
+      tags: [Funding Accounts]
+      summary: Create a bank funding account (MFA required)
+      operationId: createBankFundingAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BankAccount' }
+      responses:
+        '201':
+          description: Created.
+  /funding-accounts/banks/{bankAccountId}/verify:
+    parameters:
+      - name: bankAccountId
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Funding Accounts]
+      summary: Verify a bank funding account
+      operationId: verifyBankFundingAccount
+      responses:
+        '200':
+          description: Verification result.
+  /webhooks:
+    get:
+      tags: [Webhooks]
+      summary: List webhook subscriptions
+      operationId: listWebhooks
+      responses:
+        '200':
+          description: Webhook subscriptions.
+    post:
+      tags: [Webhooks]
+      summary: Create a webhook subscription
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/WebhookCreate' }
+      responses:
+        '201':
+          description: Created webhook.
+  /webhooks/{webhookId}:
+    parameters:
+      - name: webhookId
+        in: path
+        required: true
+        schema: { type: string }
+    delete:
+      tags: [Webhooks]
+      summary: Remove a webhook subscription
+      operationId: deleteWebhook
+      responses:
+        '204':
+          description: Removed.
+components:
+  securitySchemes:
+    sessionAuth:
+      type: apiKey
+      in: header
+      name: sessionId
+      description: |
+        Session identifier obtained from `POST /login`. Expires after 35 minutes
+        of inactivity. A `devKey` (developer key) is also required on requests
+        and is sent alongside `sessionId` in the appropriate header per BILL's
+        official reference.
+  parameters:
+    Max:
+      name: max
+      in: query
+      schema: { type: integer, default: 100, maximum: 999 }
+    Page:
+      name: page
+      in: query
+      schema: { type: string }
+    BillId:
+      name: billId
+      in: path
+      required: true
+      schema: { type: string }
+  responses:
+    Error:
+      description: Error response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code: { type: string }
+                    message: { type: string }
+                    field: { type: string }
+  schemas:
+    LoginRequest:
+      type: object
+      required: [devKey, username, organizationId]
+      properties:
+        devKey:
+          type: string
+          description: Developer key issued by BILL.
+        username:
+          type: string
+          format: email
+        password: { type: string, format: password }
+        consoleApiToken:
+          type: string
+          description: Token for Accountant Console users.
+        organizationId: { type: string }
+        rememberMeId:
+          type: string
+          description: MFA identifier for trusted 30-day sessions.
+        device:
+          type: string
+          description: Mobile device nickname for MFA sessions.
+    LoginResponse:
+      type: object
+      properties:
+        sessionId: { type: string }
+        organizationId: { type: string }
+        userId: { type: string }
+    Bill:
+      type: object
+      properties:
+        id: { type: string }
+        invoiceNumber: { type: string }
+        invoiceDate: { type: string, format: date }
+        dueDate: { type: string, format: date }
+        amount: { type: number, format: double }
+        amountDue: { type: number, format: double }
+        currency: { type: string }
+        vendorId: { type: string }
+        description: { type: string }
+        approvalStatus: { type: string }
+        paymentStatus: { type: string }
+        archived: { type: boolean }
+        billLineItems:
+          type: array
+          items: { $ref: '#/components/schemas/BillLineItem' }
+        createdTime: { type: string, format: date-time }
+        updatedTime: { type: string, format: date-time }
+    BillLineItem:
+      type: object
+      properties:
+        id: { type: string }
+        amount: { type: number, format: double }
+        chartOfAccountId: { type: string }
+        departmentId: { type: string }
+        locationId: { type: string }
+        description: { type: string }
+        lineType: { type: string }
+        quantity: { type: number }
+        unitPrice: { type: number, format: double }
+    BillCreate:
+      type: object
+      required: [vendorId, invoiceNumber, invoiceDate, dueDate, billLineItems]
+      properties:
+        vendorId: { type: string }
+        invoiceNumber: { type: string }
+        invoiceDate: { type: string, format: date }
+        dueDate: { type: string, format: date }
+        description: { type: string }
+        billLineItems:
+          type: array
+          items: { $ref: '#/components/schemas/BillLineItem' }
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/Bill' }
+        nextPage: { type: string }
+    VendorCreate:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        accountNumber: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        address: { $ref: '#/components/schemas/Address' }
+        taxId: { type: string }
+        taxIdType: { type: string }
+        track1099: { type: boolean }
+        currency: { type: string }
+    PaymentCreate:
+      type: object
+      required: [vendorId, processDate, billPays]
+      properties:
+        vendorId: { type: string }
+        chartOfAccountId: { type: string }
+        processDate: { type: string, format: date }
+        billPays:
+          type: array
+          items:
+            type: object
+            properties:
+              billId: { type: string }
+              amount: { type: number, format: double }
+        fundingAccountId: { type: string }
+        memo: { type: string }
+    InvoiceCreate:
+      type: object
+      required: [customerId, invoiceNumber, invoiceDate, dueDate, invoiceLineItems]
+      properties:
+        customerId: { type: string }
+        invoiceNumber: { type: string }
+        invoiceDate: { type: string, format: date }
+        dueDate: { type: string, format: date }
+        glPostingDate: { type: string, format: date }
+        salesTax: { type: number, format: double }
+        invoiceLineItems:
+          type: array
+          items:
+            type: object
+            properties:
+              itemId: { type: string }
+              quantity: { type: number }
+              amount: { type: number, format: double }
+              price: { type: number, format: double }
+              description: { type: string }
+    CustomerCreate:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        phone: { type: string }
+        billingAddress: { $ref: '#/components/schemas/Address' }
+        shippingAddress: { $ref: '#/components/schemas/Address' }
+        accountNumber: { type: string }
+        balance: { type: number, format: double }
+        currency: { type: string }
+    BankAccount:
+      type: object
+      required: [routingNumber, accountNumber, accountType]
+      properties:
+        routingNumber: { type: string }
+        accountNumber: { type: string }
+        accountType:
+          type: string
+          enum: [CHECKING, SAVINGS]
+        nameOnAccount: { type: string }
+        verified: { type: boolean }
+    Address:
+      type: object
+      properties:
+        line1: { type: string }
+        line2: { type: string }
+        city: { type: string }
+        stateOrProvince: { type: string }
+        zipOrPostalCode: { type: string }
+        country: { type: string }
+    WebhookCreate:
+      type: object
+      required: [url, events]
+      properties:
+        url: { type: string, format: uri }
+        events:
+          type: array
+          items: { type: string }
+        secret: { type: string }
+        enabled: { type: boolean, default: true }
