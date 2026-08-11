@@ -60,7 +60,7 @@ apis:
     url: https://developer.bill.com/reference
   - type: GettingStarted
     url: https://developer.bill.com/docs/bill-v3-api-get-started
-  - type: Postman
+  - type: PostmanCollection
     url: https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview
   - type: AsyncAPI
     url: >-
