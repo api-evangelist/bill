@@ -168,6 +168,20 @@ apis:
   - type: OpenAPI
     url: openapi/bill-webhooks-api-openapi.yml
 common:
+  - type: Blog
+    url: https://www.bill.com/blog
+  - type: Webhooks
+    url: https://developer.bill.com/docs/webhooks
+  - type: Sandbox
+    url: https://developer.bill.com/docs/sandbox-bank-account-setup
+  - type: ChangeLog
+    url: https://developer.bill.com/changelog
+  - type: PrivacyPolicy
+    url: https://www.bill.com/privacy
+  - type: TermsOfService
+    url: https://www.bill.com/legal/terms-of-service
+  - type: GettingStarted
+    url: https://developer.bill.com/docs/get-started-in-production
   - type: AgenticAccess
     url: agentic-access/bill-agentic-access.yml
   - type: DomainSecurity
