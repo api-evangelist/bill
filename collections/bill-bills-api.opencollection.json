@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BILL v3 Authentication Bills API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bills",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bills",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills",
+            "params": [
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List bills"
+        },
+        {
+          "info": {
+            "name": "Create a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a bill"
+        },
+        {
+          "info": {
+            "name": "Create multiple bills in one request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple bills in one request"
+        },
+        {
+          "info": {
+            "name": "Retrieve a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills/:billId",
+            "params": [
+              {
+                "name": "billId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a bill"
+        },
+        {
+          "info": {
+            "name": "Update a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills/:billId",
+            "params": [
+              {
+                "name": "billId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a bill"
+        },
+        {
+          "info": {
+            "name": "Archive a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/bills/:billId/archive",
+            "params": [
+              {
+                "name": "billId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive a bill"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

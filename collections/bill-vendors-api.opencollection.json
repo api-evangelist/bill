@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BILL v3 Authentication Vendors API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vendors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List vendors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/vendors",
+            "params": [
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List vendors"
+        },
+        {
+          "info": {
+            "name": "Create a vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/vendors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a vendor"
+        },
+        {
+          "info": {
+            "name": "Retrieve a vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/vendors/:vendorId",
+            "params": [
+              {
+                "name": "vendorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a vendor"
+        },
+        {
+          "info": {
+            "name": "Update a vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://gateway.prod.bill.com/connect/v3/vendors/:vendorId",
+            "params": [
+              {
+                "name": "vendorId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a vendor"
+        },
+        {
+          "info": {
+            "name": "Add a vendor bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/vendors/:vendorId/bank-account",
+            "params": [
+              {
+                "name": "vendorId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a vendor bank account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,519 @@
+{
+  "item": [
+    {
+      "id": "ef35c1ba-9f3e-4fa8-a408-c68eb24aa62e",
+      "name": "Vendors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff875ef7-ffdf-4e2d-918e-3f60f3c3cba2",
+          "name": "List vendors",
+          "request": {
+            "name": "List vendors",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "992dd4e8-8b9d-4b14-8f50-24cf2cdf40e1",
+              "name": "Vendors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "968e194a-5993-47e3-a8a1-73942a771182",
+          "name": "Create a vendor",
+          "request": {
+            "name": "Create a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd5c3973-2a54-4d55-aa20-a86c13514a53",
+              "name": "Created vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "176f2f31-6d29-4065-b977-d4c140ae83a1",
+          "name": "Retrieve a vendor",
+          "request": {
+            "name": "Retrieve a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8310b52e-871e-4a2e-a84a-2abd72d46ac7",
+              "name": "Vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c4113d7-0e53-42d3-8bfe-522105b5acd0",
+          "name": "Update a vendor",
+          "request": {
+            "name": "Update a vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"zipOrPostalCode\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "679380f6-dc86-4f46-9b27-c5e2575f060b",
+              "name": "Updated vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\",\n    \"city\": \"string\",\n    \"stateOrProvince\": \"string\",\n    \"zipOrPostalCode\": \"string\",\n    \"country\": \"string\"\n  },\n  \"taxId\": \"<string>\",\n  \"taxIdType\": \"<string>\",\n  \"track1099\": \"<boolean>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86d9dc99-3e85-4d33-94d0-05b147921b41",
+          "name": "Add a vendor bank account",
+          "request": {
+            "name": "Add a vendor bank account",
+            "description": {},
+            "url": {
+              "path": [
+                "vendors",
+                ":vendorId",
+                "bank-account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e205790-642a-4675-a90e-1e9b12dc8ab3",
+              "name": "Added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":vendorId",
+                    "bank-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"routingNumber\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"nameOnAccount\": \"<string>\",\n  \"verified\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.prod.bill.com/connect/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5430883b-0256-478f-bbdd-00fc018cbbde",
+    "name": "BILL v3 Authentication Vendors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing access to BILL's Accounts Payable, Accounts Receivable,\nand Spend & Expense capabilities — bills, invoices, vendors, customers,\npayments, funding accounts, organizations, webhooks, and authentication\nworkflows.\n\nBest-effort OpenAPI reconstruction from BILL's public developer portal at\nhttps://developer.bill.com/docs/home. Authoritative reference and Postman\ncollection live under https://developer.bill.com/reference and\nhttps://developer.bill.com/llms.txt.\n\n\nContact Support:\n Name: BILL Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

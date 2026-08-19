@@ -1,0 +1,565 @@
+{
+  "item": [
+    {
+      "id": "732df2a2-8add-4342-80c7-a9a6ce0c6210",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2abf150a-c6f1-4191-9889-f7933f7108a3",
+          "name": "List payments",
+          "request": {
+            "name": "List payments",
+            "description": {},
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97dc8d73-c0d0-4caa-a7e8-1bd4d8995b7d",
+              "name": "Payments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62b7c539-75c5-44eb-9316-5bd7768a5c51",
+          "name": "Create a payment (MFA required)",
+          "request": {
+            "name": "Create a payment (MFA required)",
+            "description": {},
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"processDate\": \"<date>\",\n  \"billPays\": [\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    },\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    }\n  ],\n  \"chartOfAccountId\": \"<string>\",\n  \"fundingAccountId\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "953e9d91-5965-44e3-ba8f-6e7f2a039ed1",
+              "name": "Created payment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"processDate\": \"<date>\",\n  \"billPays\": [\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    },\n    {\n      \"billId\": \"<string>\",\n      \"amount\": \"<double>\"\n    }\n  ],\n  \"chartOfAccountId\": \"<string>\",\n  \"fundingAccountId\": \"<string>\",\n  \"memo\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afa12823-2a83-4ec4-b990-60b5f2cd63f1",
+          "name": "Create a bulk payment (MFA required)",
+          "request": {
+            "name": "Create a bulk payment (MFA required)",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payments\": [\n    {\n      \"vendorId\": \"<string>\",\n      \"processDate\": \"<date>\",\n      \"billPays\": [\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"chartOfAccountId\": \"<string>\",\n      \"fundingAccountId\": \"<string>\",\n      \"memo\": \"<string>\"\n    },\n    {\n      \"vendorId\": \"<string>\",\n      \"processDate\": \"<date>\",\n      \"billPays\": [\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"billId\": \"<string>\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"chartOfAccountId\": \"<string>\",\n      \"fundingAccountId\": \"<string>\",\n      \"memo\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d136b8ce-53fc-45eb-80b0-6b40e188ceb4",
+              "name": "Bulk payment result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payments\": [\n    {\n      \"vendorId\": \"string\",\n      \"processDate\": \"1996-05-22\",\n      \"billPays\": [\n        {\n          \"billId\": \"string\",\n          \"amount\": 9366.499049110867\n        },\n        {\n          \"billId\": \"string\",\n          \"amount\": 8529.53947036315\n        }\n      ],\n      \"chartOfAccountId\": \"string\",\n      \"fundingAccountId\": \"string\",\n      \"memo\": \"string\"\n    },\n    {\n      \"vendorId\": \"string\",\n      \"processDate\": \"1946-08-16\",\n      \"billPays\": [\n        {\n          \"billId\": \"string\",\n          \"amount\": 8910.872342295163\n        },\n        {\n          \"billId\": \"string\",\n          \"amount\": 2860.538002116064\n        }\n      ],\n      \"chartOfAccountId\": \"string\",\n      \"fundingAccountId\": \"string\",\n      \"memo\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbd9ca6a-e0f2-412b-8f9d-0cb380b73aeb",
+          "name": "Get payment details",
+          "request": {
+            "name": "Get payment details",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30a3bf89-b410-478e-9b66-06c22922adcd",
+              "name": "Payment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76baac65-f876-4909-84ec-47ffd815af99",
+          "name": "Cancel a scheduled payment",
+          "request": {
+            "name": "Cancel a scheduled payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa0cb452-fd99-4b38-97ce-1e0020c4ef33",
+              "name": "Cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adc6dba4-ca52-4ac3-9ce6-7cd8e6144a62",
+          "name": "Void a processed payment",
+          "request": {
+            "name": "Void a processed payment",
+            "description": {},
+            "url": {
+              "path": [
+                "payments",
+                ":paymentId",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71e2731b-0510-4fa4-846a-27ffc469cf47",
+              "name": "Voided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":paymentId",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.prod.bill.com/connect/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "76619e2f-26bc-425a-924f-d48321c08169",
+    "name": "BILL v3 Authentication Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing access to BILL's Accounts Payable, Accounts Receivable,\nand Spend & Expense capabilities — bills, invoices, vendors, customers,\npayments, funding accounts, organizations, webhooks, and authentication\nworkflows.\n\nBest-effort OpenAPI reconstruction from BILL's public developer portal at\nhttps://developer.bill.com/docs/home. Authoritative reference and Postman\ncollection live under https://developer.bill.com/reference and\nhttps://developer.bill.com/llms.txt.\n\n\nContact Support:\n Name: BILL Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BILL v3 Authentication Webhooks API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/webhooks"
+          },
+          "docs": "List webhook subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Remove a webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gateway.prod.bill.com/connect/v3/webhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a webhook subscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

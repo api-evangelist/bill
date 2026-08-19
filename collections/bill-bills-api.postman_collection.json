@@ -1,0 +1,623 @@
+{
+  "item": [
+    {
+      "id": "0a3f2eee-269d-486d-bd27-081b22fcf7e3",
+      "name": "Bills",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a7d9e6b-2711-4c69-91e1-af33fafaf3a5",
+          "name": "List bills",
+          "request": {
+            "name": "List bills",
+            "description": {},
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6efc0702-55ea-4151-aeca-7c3a68e9419d",
+              "name": "Bills.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1968-04-02\",\n      \"dueDate\": \"1951-04-23\",\n      \"amount\": 861.9858722674512,\n      \"amountDue\": 8486.823159740385,\n      \"currency\": \"string\",\n      \"vendorId\": \"string\",\n      \"description\": \"string\",\n      \"approvalStatus\": \"string\",\n      \"paymentStatus\": \"string\",\n      \"archived\": true,\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 9589.035935844313,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 8383.023828839137,\n          \"unitPrice\": 8538.367967635739\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 6042.02701677132,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 7396.007057600254,\n          \"unitPrice\": 7060.455769027054\n        }\n      ],\n      \"createdTime\": \"2026-04-29T09:47:51.090Z\",\n      \"updatedTime\": \"1996-06-02T09:55:15.126Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1990-07-01\",\n      \"dueDate\": \"1994-04-02\",\n      \"amount\": 4732.523969501554,\n      \"amountDue\": 5191.721851583842,\n      \"currency\": \"string\",\n      \"vendorId\": \"string\",\n      \"description\": \"string\",\n      \"approvalStatus\": \"string\",\n      \"paymentStatus\": \"string\",\n      \"archived\": true,\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 8910.89168961462,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 6383.897871602085,\n          \"unitPrice\": 8797.359091727743\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 8713.41251544231,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 9923.282706287939,\n          \"unitPrice\": 5345.672695167416\n        }\n      ],\n      \"createdTime\": \"1987-06-01T13:16:25.296Z\",\n      \"updatedTime\": \"1955-03-16T02:17:22.316Z\"\n    }\n  ],\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "323e43ec-a4cb-49e4-b068-f51cc9859657",
+          "name": "Create a bill",
+          "request": {
+            "name": "Create a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d14c0ca-c308-4422-b100-70fd67f97598",
+              "name": "Created bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 4355.733345671956,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 97.53381920247328,\n      \"unitPrice\": 2168.4510810428105\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 2835.355014382206,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1198.8747379430265,\n      \"unitPrice\": 5608.75398081945\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"invoiceNumber\": \"string\",\n  \"invoiceDate\": \"2018-10-27\",\n  \"dueDate\": \"1981-06-27\",\n  \"amount\": 676.1237074681382,\n  \"amountDue\": 855.6714556488831,\n  \"currency\": \"string\",\n  \"vendorId\": \"string\",\n  \"description\": \"string\",\n  \"approvalStatus\": \"string\",\n  \"paymentStatus\": \"string\",\n  \"archived\": true,\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 7673.883103499805,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 2208.380262870279,\n      \"unitPrice\": 5492.426834814031\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 9543.05820864576,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1880.7885406204473,\n      \"unitPrice\": 107.26731999044947\n    }\n  ],\n  \"createdTime\": \"1970-01-31T08:45:16.868Z\",\n  \"updatedTime\": \"1954-08-19T12:51:34.728Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53c1980f-480a-4005-a4a9-540057ab1f75",
+          "name": "Create multiple bills in one request",
+          "request": {
+            "name": "Create multiple bills in one request",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bills\": [\n    {\n      \"vendorId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"invoiceDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"billLineItems\": [\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        }\n      ],\n      \"description\": \"<string>\"\n    },\n    {\n      \"vendorId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"invoiceDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"billLineItems\": [\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"amount\": \"<double>\",\n          \"chartOfAccountId\": \"<string>\",\n          \"departmentId\": \"<string>\",\n          \"locationId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"lineType\": \"<string>\",\n          \"quantity\": \"<number>\",\n          \"unitPrice\": \"<double>\"\n        }\n      ],\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f74b313f-3707-464f-b1c4-6dfde10751cc",
+              "name": "Bulk creation result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bills\": [\n    {\n      \"vendorId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1990-04-12\",\n      \"dueDate\": \"1967-08-19\",\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 8775.100924337541,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 3216.9290554433674,\n          \"unitPrice\": 4514.162262188191\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 1638.8793164470362,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 3758.973443650836,\n          \"unitPrice\": 8395.35396514642\n        }\n      ],\n      \"description\": \"string\"\n    },\n    {\n      \"vendorId\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"invoiceDate\": \"1962-06-10\",\n      \"dueDate\": \"1969-05-09\",\n      \"billLineItems\": [\n        {\n          \"id\": \"string\",\n          \"amount\": 9571.817895069213,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 9892.468695684795,\n          \"unitPrice\": 1337.5544005427087\n        },\n        {\n          \"id\": \"string\",\n          \"amount\": 7868.6656937766165,\n          \"chartOfAccountId\": \"string\",\n          \"departmentId\": \"string\",\n          \"locationId\": \"string\",\n          \"description\": \"string\",\n          \"lineType\": \"string\",\n          \"quantity\": 1243.1012803214614,\n          \"unitPrice\": 8377.569264256046\n        }\n      ],\n      \"description\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a7a042d-600e-433d-8cd7-552e87c200c0",
+          "name": "Retrieve a bill",
+          "request": {
+            "name": "Retrieve a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cb091c2-8bf4-494e-aee0-c1fac23d60cc",
+              "name": "Bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"invoiceNumber\": \"string\",\n  \"invoiceDate\": \"2018-10-27\",\n  \"dueDate\": \"1981-06-27\",\n  \"amount\": 676.1237074681382,\n  \"amountDue\": 855.6714556488831,\n  \"currency\": \"string\",\n  \"vendorId\": \"string\",\n  \"description\": \"string\",\n  \"approvalStatus\": \"string\",\n  \"paymentStatus\": \"string\",\n  \"archived\": true,\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 7673.883103499805,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 2208.380262870279,\n      \"unitPrice\": 5492.426834814031\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 9543.05820864576,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1880.7885406204473,\n      \"unitPrice\": 107.26731999044947\n    }\n  ],\n  \"createdTime\": \"1970-01-31T08:45:16.868Z\",\n  \"updatedTime\": \"1954-08-19T12:51:34.728Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52ec9019-3581-4c5b-b7d4-953b3cafb20e",
+          "name": "Update a bill",
+          "request": {
+            "name": "Update a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"chartOfAccountId\": \"<string>\",\n      \"departmentId\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lineType\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"unitPrice\": \"<double>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41bd4718-a9cb-4a30-aeb8-92e0d1431df8",
+              "name": "Updated bill.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"billLineItems\": [\n    {\n      \"id\": \"string\",\n      \"amount\": 4355.733345671956,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 97.53381920247328,\n      \"unitPrice\": 2168.4510810428105\n    },\n    {\n      \"id\": \"string\",\n      \"amount\": 2835.355014382206,\n      \"chartOfAccountId\": \"string\",\n      \"departmentId\": \"string\",\n      \"locationId\": \"string\",\n      \"description\": \"string\",\n      \"lineType\": \"string\",\n      \"quantity\": 1198.8747379430265,\n      \"unitPrice\": 5608.75398081945\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7eae8079-4002-4ff3-b016-fb3ffd5e65e4",
+          "name": "Archive a bill",
+          "request": {
+            "name": "Archive a bill",
+            "description": {},
+            "url": {
+              "path": [
+                "bills",
+                ":billId",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "billId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb60467b-2d0f-4bca-8771-63b062ab6187",
+              "name": "Archived.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":billId",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "billId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.prod.bill.com/connect/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ef2a531c-a9eb-4c65-acf4-fa2482a7088f",
+    "name": "BILL v3 Authentication Bills API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing access to BILL's Accounts Payable, Accounts Receivable,\nand Spend & Expense capabilities — bills, invoices, vendors, customers,\npayments, funding accounts, organizations, webhooks, and authentication\nworkflows.\n\nBest-effort OpenAPI reconstruction from BILL's public developer portal at\nhttps://developer.bill.com/docs/home. Authoritative reference and Postman\ncollection live under https://developer.bill.com/reference and\nhttps://developer.bill.com/llms.txt.\n\n\nContact Support:\n Name: BILL Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

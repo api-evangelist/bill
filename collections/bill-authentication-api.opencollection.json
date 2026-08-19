@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BILL v3 Authentication API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign in to a BILL organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates a BILL user. Returns a `sessionId` to be used as the\nsession identifier on subsequent requests (expires after 35 minutes of\ninactivity).\n"
+        },
+        {
+          "info": {
+            "name": "Sign out of the current session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/logout"
+          },
+          "docs": "Sign out of the current session"
+        },
+        {
+          "info": {
+            "name": "Add phone for multi-factor authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/mfa/setup"
+          },
+          "docs": "Add phone for multi-factor authentication"
+        },
+        {
+          "info": {
+            "name": "Generate an MFA challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/mfa/challenge"
+          },
+          "docs": "Generate an MFA challenge"
+        },
+        {
+          "info": {
+            "name": "Retrieve current session details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/session"
+          },
+          "docs": "Retrieve current session details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

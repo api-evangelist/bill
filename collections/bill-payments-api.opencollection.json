@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BILL v3 Authentication Payments API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sessionId",
+      "value": "{{sessionId}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments",
+            "params": [
+              {
+                "name": "max",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List payments"
+        },
+        {
+          "info": {
+            "name": "Create a payment (MFA required)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment (MFA required)"
+        },
+        {
+          "info": {
+            "name": "Create a bulk payment (MFA required)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a bulk payment (MFA required)"
+        },
+        {
+          "info": {
+            "name": "Get payment details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments/:paymentId",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get payment details"
+        },
+        {
+          "info": {
+            "name": "Cancel a scheduled payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments/:paymentId/cancel",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a scheduled payment"
+        },
+        {
+          "info": {
+            "name": "Void a processed payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.prod.bill.com/connect/v3/payments/:paymentId/void",
+            "params": [
+              {
+                "name": "paymentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Void a processed payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

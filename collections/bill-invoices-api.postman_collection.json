@@ -1,0 +1,476 @@
+{
+  "item": [
+    {
+      "id": "b69125cc-735c-4813-bc11-268461f3eb86",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "213f975f-b96e-4fd8-947e-72bc4a9b5503",
+          "name": "List invoices",
+          "request": {
+            "name": "List invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a30591e8-3f62-4dd0-aad9-9b91298a957a",
+              "name": "Invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f3b81f1-bdc8-4861-8221-aab3c95305ed",
+          "name": "Create an invoice",
+          "request": {
+            "name": "Create an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d510fb6d-2ab7-4ffd-9917-315bd1db1c27",
+              "name": "Created invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "981d723a-c103-4b87-a038-e23fc767354e",
+          "name": "Retrieve an invoice",
+          "request": {
+            "name": "Retrieve an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1f9ff49-84d4-4493-b9a3-6d4e701e4c5b",
+              "name": "Invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44363769-6d0a-45ba-8a9b-1f158cb92fc4",
+          "name": "Update an invoice",
+          "request": {
+            "name": "Update an invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79370c69-c890-4de9-b3b8-4cd79ae064aa",
+              "name": "Updated invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"invoiceLineItems\": [\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"amount\": \"<double>\",\n      \"price\": \"<double>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"glPostingDate\": \"<date>\",\n  \"salesTax\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d25cb8ac-b214-4d27-921e-8bbb4b0b0877",
+          "name": "Send an invoice to the customer",
+          "request": {
+            "name": "Send an invoice to the customer",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices",
+                ":invoiceId",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoiceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88e98629-298e-424c-8418-113bc9253ca4",
+              "name": "Sent.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":invoiceId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoiceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionId",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.prod.bill.com/connect/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "sessionId"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "022cdd03-3534-4bb9-a90d-5b9bad631f22",
+    "name": "BILL v3 Authentication Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing access to BILL's Accounts Payable, Accounts Receivable,\nand Spend & Expense capabilities — bills, invoices, vendors, customers,\npayments, funding accounts, organizations, webhooks, and authentication\nworkflows.\n\nBest-effort OpenAPI reconstruction from BILL's public developer portal at\nhttps://developer.bill.com/docs/home. Authoritative reference and Postman\ncollection live under https://developer.bill.com/reference and\nhttps://developer.bill.com/llms.txt.\n\n\nContact Support:\n Name: BILL Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
