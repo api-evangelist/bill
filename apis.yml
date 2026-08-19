@@ -48,7 +48,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-30'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: bill:v3-api
   name: BILL v3 API
