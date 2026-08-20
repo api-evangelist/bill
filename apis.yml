@@ -64,6 +64,12 @@ apis:
   - Accounts Receivable
   - Spend Management
   - Payments
+  - Webhook
+  tags_raw:
+  - Accounts Payable
+  - Accounts Receivable
+  - Spend Management
+  - Payments
   - Webhooks
   properties:
   - type: Documentation
@@ -145,6 +151,8 @@ apis:
   humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
   baseURL: https://gateway.prod.bill.com/connect/v3
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -175,6 +183,8 @@ apis:
   humanURL: https://developer.bill.com/docs/bill-v3-api-get-started
   baseURL: https://gateway.prod.bill.com/connect/v3
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
