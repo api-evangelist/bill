@@ -1,0 +1,27 @@
+# Front Door AI Index — bill — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: bill
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.bill.com
+  final_host: www.bill.com
+  ownership: own
+  owner: bill
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 16
+  host_score: 16
+  density: 11.54
+  words: 1387
+  tiers:
+    agentic: 0
+    core: 16
+    model: 0
+  ambiguous: 5
+  top_terms:
+    AI: 16
+    intelligence: 3
+    automation: 2

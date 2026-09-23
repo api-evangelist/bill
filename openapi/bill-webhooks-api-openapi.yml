@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BILL v3 Authentication Webhooks API
+  title: BILL v3 Webhooks API
   description: 'REST API providing access to BILL''s Accounts Payable, Accounts Receivable,
 
     and Spend & Expense capabilities — bills, invoices, vendors, customers,
@@ -16,9 +16,7 @@ info:
 
     collection live under https://developer.bill.com/reference and
 
-    https://developer.bill.com/llms.txt.
-
-    '
+    https://developer.bill.com/llms.txt.'
   version: 3.0.0
   contact:
     name: BILL Developer Portal

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BILL v3 Authentication Customers API
+  title: BILL v3 Customers API
   description: 'REST API providing access to BILL''s Accounts Payable, Accounts Receivable,
 
     and Spend & Expense capabilities — bills, invoices, vendors, customers,
@@ -16,9 +16,7 @@ info:
 
     collection live under https://developer.bill.com/reference and
 
-    https://developer.bill.com/llms.txt.
-
-    '
+    https://developer.bill.com/llms.txt.'
   version: 3.0.0
   contact:
     name: BILL Developer Portal
@@ -114,6 +112,21 @@ paths:
           description: Added.
 components:
   schemas:
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        stateOrProvince:
+          type: string
+        zipOrPostalCode:
+          type: string
+        country:
+          type: string
     BankAccount:
       type: object
       required:
@@ -156,21 +169,6 @@ components:
           type: number
           format: double
         currency:
-          type: string
-    Address:
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        stateOrProvince:
-          type: string
-        zipOrPostalCode:
-          type: string
-        country:
           type: string
   securitySchemes:
     sessionAuth:

@@ -1,15 +1,7 @@
 {
   "provider": "bill",
   "sources": [
-    "bill-authentication-api-openapi.yml",
-    "bill-bills-api-openapi.yml",
-    "bill-customers-api-openapi.yml",
-    "bill-funding-accounts-api-openapi.yml",
-    "bill-invoices-api-openapi.yml",
-    "bill-organizations-api-openapi.yml",
-    "bill-payments-api-openapi.yml",
-    "bill-vendors-api-openapi.yml",
-    "bill-webhooks-api-openapi.yml"
+    "_original/bill-openapi.yml"
   ],
   "outputs": [
     "bill-authentication-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bill-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bill-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-bills-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-funding-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-vendors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bill-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

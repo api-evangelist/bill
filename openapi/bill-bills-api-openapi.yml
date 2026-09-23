@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: BILL v3 Authentication Bills API
+  title: BILL v3 Bills API
   description: 'REST API providing access to BILL''s Accounts Payable, Accounts Receivable,
 
     and Spend & Expense capabilities — bills, invoices, vendors, customers,
@@ -16,9 +16,7 @@ info:
 
     collection live under https://developer.bill.com/reference and
 
-    https://developer.bill.com/llms.txt.
-
-    '
+    https://developer.bill.com/llms.txt.'
   version: 3.0.0
   contact:
     name: BILL Developer Portal
@@ -140,7 +138,35 @@ paths:
         '200':
           description: Archived.
 components:
+  parameters:
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
+    BillId:
+      name: billId
+      in: path
+      required: true
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
   schemas:
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        nextPage:
+          type: string
     BillLineItem:
       type: object
       properties:
@@ -230,34 +256,6 @@ components:
         updatedTime:
           type: string
           format: date-time
-    BillList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bill'
-        nextPage:
-          type: string
-  parameters:
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
-    BillId:
-      name: billId
-      in: path
-      required: true
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
   securitySchemes:
     sessionAuth:
       type: apiKey
