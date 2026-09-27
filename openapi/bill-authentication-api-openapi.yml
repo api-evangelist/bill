@@ -103,35 +103,7 @@ paths:
         '200':
           description: Current session.
 components:
-  responses:
-    Error:
-      description: Error response.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              errors:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    code:
-                      type: string
-                    message:
-                      type: string
-                    field:
-                      type: string
   schemas:
-    LoginResponse:
-      type: object
-      properties:
-        sessionId:
-          type: string
-        organizationId:
-          type: string
-        userId:
-          type: string
     LoginRequest:
       type: object
       required:
@@ -159,6 +131,34 @@ components:
         device:
           type: string
           description: Mobile device nickname for MFA sessions.
+    LoginResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+        organizationId:
+          type: string
+        userId:
+          type: string
+  responses:
+    Error:
+      description: Error response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    message:
+                      type: string
+                    field:
+                      type: string
   securitySchemes:
     sessionAuth:
       type: apiKey

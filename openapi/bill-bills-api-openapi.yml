@@ -138,35 +138,7 @@ paths:
         '200':
           description: Archived.
 components:
-  parameters:
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
-    BillId:
-      name: billId
-      in: path
-      required: true
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
   schemas:
-    BillList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bill'
-        nextPage:
-          type: string
     BillLineItem:
       type: object
       properties:
@@ -256,6 +228,34 @@ components:
         updatedTime:
           type: string
           format: date-time
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        nextPage:
+          type: string
+  parameters:
+    BillId:
+      name: billId
+      in: path
+      required: true
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
   securitySchemes:
     sessionAuth:
       type: apiKey

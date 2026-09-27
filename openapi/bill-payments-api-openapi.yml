@@ -161,11 +161,6 @@ components:
         memo:
           type: string
   parameters:
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
     Max:
       name: max
       in: query
@@ -173,6 +168,11 @@ components:
         type: integer
         default: 100
         maximum: 999
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
   securitySchemes:
     sessionAuth:
       type: apiKey
