@@ -127,26 +127,6 @@ components:
           type: string
         country:
           type: string
-    BankAccount:
-      type: object
-      required:
-      - routingNumber
-      - accountNumber
-      - accountType
-      properties:
-        routingNumber:
-          type: string
-        accountNumber:
-          type: string
-        accountType:
-          type: string
-          enum:
-          - CHECKING
-          - SAVINGS
-        nameOnAccount:
-          type: string
-        verified:
-          type: boolean
     CustomerCreate:
       type: object
       required:
@@ -170,6 +150,26 @@ components:
           format: double
         currency:
           type: string
+    BankAccount:
+      type: object
+      required:
+      - routingNumber
+      - accountNumber
+      - accountType
+      properties:
+        routingNumber:
+          type: string
+        accountNumber:
+          type: string
+        accountType:
+          type: string
+          enum:
+          - CHECKING
+          - SAVINGS
+        nameOnAccount:
+          type: string
+        verified:
+          type: boolean
   securitySchemes:
     sessionAuth:
       type: apiKey

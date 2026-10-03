@@ -131,6 +131,19 @@ paths:
         '200':
           description: Voided.
 components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
   schemas:
     PaymentCreate:
       type: object
@@ -160,19 +173,6 @@ components:
           type: string
         memo:
           type: string
-  parameters:
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
   securitySchemes:
     sessionAuth:
       type: apiKey

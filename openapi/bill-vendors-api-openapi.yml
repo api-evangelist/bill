@@ -130,26 +130,6 @@ components:
           type: string
         country:
           type: string
-    BankAccount:
-      type: object
-      required:
-      - routingNumber
-      - accountNumber
-      - accountType
-      properties:
-        routingNumber:
-          type: string
-        accountNumber:
-          type: string
-        accountType:
-          type: string
-          enum:
-          - CHECKING
-          - SAVINGS
-        nameOnAccount:
-          type: string
-        verified:
-          type: boolean
     VendorCreate:
       type: object
       required:
@@ -174,12 +154,27 @@ components:
           type: boolean
         currency:
           type: string
+    BankAccount:
+      type: object
+      required:
+      - routingNumber
+      - accountNumber
+      - accountType
+      properties:
+        routingNumber:
+          type: string
+        accountNumber:
+          type: string
+        accountType:
+          type: string
+          enum:
+          - CHECKING
+          - SAVINGS
+        nameOnAccount:
+          type: string
+        verified:
+          type: boolean
   parameters:
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
     Max:
       name: max
       in: query
@@ -187,6 +182,11 @@ components:
         type: integer
         default: 100
         maximum: 999
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
   securitySchemes:
     sessionAuth:
       type: apiKey

@@ -104,6 +104,15 @@ paths:
           description: Current session.
 components:
   schemas:
+    LoginResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+        organizationId:
+          type: string
+        userId:
+          type: string
     LoginRequest:
       type: object
       required:
@@ -131,15 +140,6 @@ components:
         device:
           type: string
           description: Mobile device nickname for MFA sessions.
-    LoginResponse:
-      type: object
-      properties:
-        sessionId:
-          type: string
-        organizationId:
-          type: string
-        userId:
-          type: string
   responses:
     Error:
       description: Error response.

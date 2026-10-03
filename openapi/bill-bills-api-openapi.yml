@@ -139,29 +139,6 @@ paths:
           description: Archived.
 components:
   schemas:
-    BillLineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        amount:
-          type: number
-          format: double
-        chartOfAccountId:
-          type: string
-        departmentId:
-          type: string
-        locationId:
-          type: string
-        description:
-          type: string
-        lineType:
-          type: string
-        quantity:
-          type: number
-        unitPrice:
-          type: number
-          format: double
     BillCreate:
       type: object
       required:
@@ -187,6 +164,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BillLineItem'
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        nextPage:
+          type: string
     Bill:
       type: object
       properties:
@@ -228,16 +214,37 @@ components:
         updatedTime:
           type: string
           format: date-time
-    BillList:
+    BillLineItem:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bill'
-        nextPage:
+        id:
           type: string
+        amount:
+          type: number
+          format: double
+        chartOfAccountId:
+          type: string
+        departmentId:
+          type: string
+        locationId:
+          type: string
+        description:
+          type: string
+        lineType:
+          type: string
+        quantity:
+          type: number
+        unitPrice:
+          type: number
+          format: double
   parameters:
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
     BillId:
       name: billId
       in: path
@@ -249,13 +256,6 @@ components:
       in: query
       schema:
         type: string
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
   securitySchemes:
     sessionAuth:
       type: apiKey
