@@ -1,0 +1,44 @@
+slug: bill
+provider: BILL
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Bills
+  spec_file: bill-bills-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.9
+  evidence: 'POST /bills createBill Create a bill; schemas: BillCreate, BillList, Bill, BillLineItem'
+  reason: Bills with line items in BILL's 'Accounts Payable' workflow are supplier invoices captured for
+    approval and payment — invoice processing within Accounts Payable Management.
+- tag: Invoices
+  spec_file: bill-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.85
+  evidence: POST /invoices createInvoice Create an invoice; POST /invoices/{invoiceId}/send sendInvoice
+    Send an invoice to the customer
+  reason: Creating and sending invoices to customers is customer invoicing within Accounts Receivable
+    Management, consistent with the vendor's stated AR capability.
+- tag: Payments
+  spec_file: bill-payments-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.7
+  evidence: POST /payments createPayment Create a payment (MFA required); POST /payments/{paymentId}/void
+    voidPayment Void a processed payment
+  reason: Scheduling, cancelling and voiding outbound payments against bills is the payment execution
+    leg of Accounts Payable; some chance payments also cover AR receipts, so confidence is moderate.

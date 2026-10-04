@@ -195,6 +195,9 @@ apis:
   - type: OpenAPI
     url: openapi/bill-webhooks-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/bill-capability-edges.yml
+    name: BILL Business Capability Map
   - type: Blog
     url: https://www.bill.com/blog
   - type: Webhooks
