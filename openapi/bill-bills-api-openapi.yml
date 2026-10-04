@@ -164,15 +164,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BillLineItem'
-    BillList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bill'
-        nextPage:
-          type: string
     Bill:
       type: object
       properties:
@@ -237,14 +228,16 @@ components:
         unitPrice:
           type: number
           format: double
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        nextPage:
+          type: string
   parameters:
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
     BillId:
       name: billId
       in: path
@@ -256,6 +249,13 @@ components:
       in: query
       schema:
         type: string
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
   securitySchemes:
     sessionAuth:
       type: apiKey
