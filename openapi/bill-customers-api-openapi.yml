@@ -112,21 +112,26 @@ paths:
           description: Added.
 components:
   schemas:
-    Address:
+    BankAccount:
       type: object
+      required:
+      - routingNumber
+      - accountNumber
+      - accountType
       properties:
-        line1:
+        routingNumber:
           type: string
-        line2:
+        accountNumber:
           type: string
-        city:
+        accountType:
           type: string
-        stateOrProvince:
+          enum:
+          - CHECKING
+          - SAVINGS
+        nameOnAccount:
           type: string
-        zipOrPostalCode:
-          type: string
-        country:
-          type: string
+        verified:
+          type: boolean
     CustomerCreate:
       type: object
       required:
@@ -150,26 +155,21 @@ components:
           format: double
         currency:
           type: string
-    BankAccount:
+    Address:
       type: object
-      required:
-      - routingNumber
-      - accountNumber
-      - accountType
       properties:
-        routingNumber:
+        line1:
           type: string
-        accountNumber:
+        line2:
           type: string
-        accountType:
+        city:
           type: string
-          enum:
-          - CHECKING
-          - SAVINGS
-        nameOnAccount:
+        stateOrProvince:
           type: string
-        verified:
-          type: boolean
+        zipOrPostalCode:
+          type: string
+        country:
+          type: string
   securitySchemes:
     sessionAuth:
       type: apiKey

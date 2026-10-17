@@ -138,32 +138,26 @@ paths:
         '200':
           description: Archived.
 components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: string
+    BillId:
+      name: billId
+      in: path
+      required: true
+      schema:
+        type: string
+    Max:
+      name: max
+      in: query
+      schema:
+        type: integer
+        default: 100
+        maximum: 999
   schemas:
-    BillCreate:
-      type: object
-      required:
-      - vendorId
-      - invoiceNumber
-      - invoiceDate
-      - dueDate
-      - billLineItems
-      properties:
-        vendorId:
-          type: string
-        invoiceNumber:
-          type: string
-        invoiceDate:
-          type: string
-          format: date
-        dueDate:
-          type: string
-          format: date
-        description:
-          type: string
-        billLineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/BillLineItem'
     Bill:
       type: object
       properties:
@@ -205,6 +199,15 @@ components:
         updatedTime:
           type: string
           format: date-time
+    BillList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bill'
+        nextPage:
+          type: string
     BillLineItem:
       type: object
       properties:
@@ -228,34 +231,31 @@ components:
         unitPrice:
           type: number
           format: double
-    BillList:
+    BillCreate:
       type: object
+      required:
+      - vendorId
+      - invoiceNumber
+      - invoiceDate
+      - dueDate
+      - billLineItems
       properties:
-        results:
+        vendorId:
+          type: string
+        invoiceNumber:
+          type: string
+        invoiceDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        description:
+          type: string
+        billLineItems:
           type: array
           items:
-            $ref: '#/components/schemas/Bill'
-        nextPage:
-          type: string
-  parameters:
-    BillId:
-      name: billId
-      in: path
-      required: true
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      schema:
-        type: string
-    Max:
-      name: max
-      in: query
-      schema:
-        type: integer
-        default: 100
-        maximum: 999
+            $ref: '#/components/schemas/BillLineItem'
   securitySchemes:
     sessionAuth:
       type: apiKey
