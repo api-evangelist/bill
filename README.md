@@ -1,4 +1,4 @@
-# BILL (bill)
+# BILL
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,85 +66,152 @@
 
 BILL (formerly Bill.com) is a cloud-based financial operations platform for small and midsize businesses that automates accounts payable, accounts receivable, and spend & expense management. The BILL API Platform exposes these workflows through the BILL v3 REST API and embeddable BILL Elements UI components, enabling partners and ERPs to integrate bill capture, approvals, payments, and real-time event notifications via webhooks. The API uses session-based authentication with API keys and developer keys against production and sandbox gateways.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/apis.yml)
+**Areas:** Accounts Payable · Accounts Receivable · Spend Management · Expense Management · Payments · Bill Pay · Financial Operations · Fintech · Accounting
 
-## Scope
+## BILL on APIs.io
 
-- **Type:** Index
+Everything profiled for BILL is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bill/](https://apis.io/providers/bill/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Accounts Payable
-- Accounts Receivable
-- Spend Management
-- Expense Management
-- Payments
-- Bill Pay
-- Financial Operations
-- Fintech
+- [BILL v3 API](https://apis.io/apis/bill/v3-api/) — REST API providing full-breadth access to BILL's Accounts Payable, Accounts Receivable, and Spend & Expense capabilities including bills, invoices, vendors,…
+- [BILL Elements](https://apis.io/apis/bill/elements/) — Low-code, embeddable UI components that surface the BILL Accounts Payable workflow inside partner applications with minimal development effort.
+- [BILL Authentication API](https://apis.io/apis/bill/bill-authentication-api/) — The Authentication API from BILL — 5 operation(s) for authentication.
+- [BILL Bills API](https://apis.io/apis/bill/bill-bills-api/) — The Bills API from BILL — 4 operation(s) for bills.
+- [BILL Customers API](https://apis.io/apis/bill/bill-customers-api/) — The Customers API from BILL — 3 operation(s) for customers.
+- [BILL Funding Accounts API](https://apis.io/apis/bill/bill-funding-accounts-api/) — The Funding Accounts API from BILL — 2 operation(s) for funding accounts.
+- [BILL Invoices API](https://apis.io/apis/bill/bill-invoices-api/) — The Invoices API from BILL — 3 operation(s) for invoices.
+- [BILL Organizations API](https://apis.io/apis/bill/bill-organizations-api/) — The Organizations API from BILL — 2 operation(s) for organizations.
+- [BILL Payments API](https://apis.io/apis/bill/bill-payments-api/) — The Payments API from BILL — 5 operation(s) for payments.
+- [BILL Vendors API](https://apis.io/apis/bill/bill-vendors-api/) — The Vendors API from BILL — 3 operation(s) for vendors.
+- [BILL Webhooks API](https://apis.io/apis/bill/bill-webhooks-api/) — The Webhooks API from BILL — 2 operation(s) for webhooks.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-30
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### BILL v3 API
+Event-driven and webhook contracts.
 
-REST API providing full-breadth access to BILL's Accounts Payable, Accounts Receivable, and Spend & Expense capabilities including bills, invoices, vendors, customers, payments, approvals, and webhook event notifications. Production calls are made to https://gateway.prod.bill.com/connect/v3 with sandbox at https://gateway.stage.bill.com/connect/v3.
+- [BILL Webhooks](https://apis.io/asyncapis/bill/bill-webhooks-asyncapi/)
 
-- **Human URL:** [https://developer.bill.com/docs/bill-v3-api-get-started](https://developer.bill.com/docs/bill-v3-api-get-started)
-- **Base URL:** `https://gateway.prod.bill.com/connect/v3`
+#### Event channels (11)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Accounts Payable
-- Accounts Receivable
-- Spend Management
-- Payments
-- Webhooks
+- [bankAccount](https://apis.io/channels/bill/bankaccount/)
+- [bill](https://apis.io/channels/bill/bill/)
+- [cardAccount](https://apis.io/channels/bill/cardaccount/)
+- [invoice](https://apis.io/channels/bill/invoice/)
+- [payment](https://apis.io/channels/bill/payment/)
+- [riskVerification](https://apis.io/channels/bill/riskverification/)
+- [spendReimbursement](https://apis.io/channels/bill/spendreimbursement/)
+- [spendThreeDsChallenge](https://apis.io/channels/bill/spendthreedschallenge/)
+- [spendTransaction](https://apis.io/channels/bill/spendtransaction/)
+- [vendor](https://apis.io/channels/bill/vendor/)
+- [vendorAutopay](https://apis.io/channels/bill/vendorautopay/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://developer.bill.com/docs/home)
-- [API Reference](https://developer.bill.com/reference)
-- [Getting Started](https://developer.bill.com/docs/bill-v3-api-get-started)
-- [Postman](https://www.postman.com/bill-api-platform/bill-api-platform-workspace/overview) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/bill/refs/heads/main/asyncapi/bill-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/bill.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bill.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### BILL Elements
+- [Bill Agentic Access](https://apis.io/agentic-access/bill/bill-agentic-access/)
 
-Low-code, embeddable UI components that surface the BILL Accounts Payable workflow inside partner applications with minimal development effort.
+#### Collections (10)
 
-- **Human URL:** [https://developer.bill.com/docs/home](https://developer.bill.com/docs/home)
+Postman and Open Collection request collections.
 
-#### Tags
+- [BILL v3 API](https://apis.io/collections/bill/open-bill/)
+- [BILL v3 Authentication API](https://apis.io/collections/bill/open-bill-authentication-api/)
+- [BILL v3 Authentication Bills API](https://apis.io/collections/bill/open-bill-bills-api/)
+- [BILL v3 Authentication Customers API](https://apis.io/collections/bill/open-bill-customers-api/)
+- [BILL v3 Authentication Funding Accounts API](https://apis.io/collections/bill/open-bill-funding-accounts-api/)
+- [BILL v3 Authentication Invoices API](https://apis.io/collections/bill/open-bill-invoices-api/)
+- [BILL v3 Authentication Organizations API](https://apis.io/collections/bill/open-bill-organizations-api/)
+- [BILL v3 Authentication Payments API](https://apis.io/collections/bill/open-bill-payments-api/)
+- [BILL v3 Authentication Vendors API](https://apis.io/collections/bill/open-bill-vendors-api/)
+- [BILL v3 Authentication Webhooks API](https://apis.io/collections/bill/open-bill-webhooks-api/)
 
-- Embeddable UI
-- Accounts Payable
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://developer.bill.com/docs/home)
-- [Postman Collection](collections/bill.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bill.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [BILL — asyncapi rules](https://apis.io/rules/bill/bill-asyncapi-spectral-rules/)
 
-## Common Properties
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bill Authentication](https://apis.io/security/bill/bill-authentication/)
+- [Bill Domain Security](https://apis.io/security/bill/bill-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.bill.com)
-- [Developer  Portal](https://developer.bill.com)
 - [Documentation](https://developer.bill.com/docs/home)
-- [API Reference](https://developer.bill.com/reference)
+- [Getting started](https://developer.bill.com/docs/get-started-in-production)
+- [API reference](https://developer.bill.com/reference)
 - [Pricing](https://www.bill.com/pricing)
-- [Sign Up](https://app.bill.com/Signup)
 - [Support](https://developersupport.bill.com)
-- [LinkedIn](https://www.linkedin.com/company/bill-com)
-- [L L Ms Txt](https://developer.bill.com/llms.txt)
+- [Changelog](https://developer.bill.com/changelog)
+- [Blog](https://www.bill.com/blog)
+- [Terms of service](https://www.bill.com/legal/terms-of-service)
+- [Privacy policy](https://www.bill.com/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 52.1 |
+| Contract governance | 13.6 |
+| Operational transparency | 11.8 |
+| Developer ergonomics | 46.4 |
+| Access clarity | 44.7 |
+
+**Agent readiness 24.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 17.9** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bill/](https://apis.io/providers/bill/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BILL: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bill/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
